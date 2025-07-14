@@ -1,0 +1,116 @@
+<style>
+  .section-{{ section.id }}.custom-marquee-images {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    max-width: 100%;
+    height: {{section.settings.marquee_height}}px;
+    padding-top: {{section.settings.marquee_padding}}px;
+    padding-bottom: {{section.settings.marquee_padding}}px;
+    overflow-x: hidden;
+    background:{{section.settings.colorBackground}};
+  }
+  .section-{{ section.id }}.custom-marquee-images .track-images {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 13s linear infinite;
+  }
+  .section-{{ section.id }}.custom-marquee-images img {
+    margin-left: 40px;
+    width: calc({{section.settings.image_width}}px + 50px);;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-20%);
+    }
+  }
+</style>
+<div class="section-{{ section.id }} custom-marquee-images" role="region" {{ block.shopify_attributes }}>
+  <div class="track-images">
+    {%- for block in section.blocks -%}
+      <img src="{{ block.settings.image | image_url: width: 533 }}" width="150" height="100%">
+    {%- endfor -%}
+    {%- for block in section.blocks -%}
+      <img src="{{ block.settings.image | image_url: width: 533 }}" width="150" height="100%">
+    {%- endfor -%}
+    {%- for block in section.blocks -%}
+      <img src="{{ block.settings.image | image_url: width: 533 }}" width="150" height="100%">
+    {%- endfor -%}
+    {%- for block in section.blocks -%}
+      <img src="{{ block.settings.image | image_url: width: 533 }}" width="150" height="100%">
+    {%- endfor -%}
+    {%- for block in section.blocks -%}
+      <img src="{{ block.settings.image | image_url: width: 533 }}" width="150" height="100%">
+    {%- endfor -%}
+    {%- for block in section.blocks -%}
+      <img src="{{ block.settings.image | image_url: width: 533 }}" width="150" height="100%">
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Marquee Images",
+  "settings": [
+    {
+      "type": "color",
+      "id": "colorBackground",
+      "label": "Background color",
+      "default": "#06ffbc"
+    },
+    {
+      "type": "range",
+      "id": "marquee_height",
+      "min": 24,
+      "max": 200,
+      "step": 2,
+      "default": 100,
+      "label": "Marquee height"
+    },
+    {
+      "type": "range",
+      "id": "marquee_padding",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 0,
+      "label": "Marquee padding"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 10,
+      "max": 200,
+      "step": 2,
+      "default": 100,
+      "label": "Image size"
+    },
+
+  ],
+  "blocks": [
+    {
+      "type": "image_picker",
+      "name": "Logo",
+      "limit": 20,
+      "settings": [
+         {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee Images"
+    }
+  ]
+}
+{% endschema %}

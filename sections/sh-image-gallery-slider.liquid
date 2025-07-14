@@ -1,0 +1,440 @@
+{%- capture sh_testimonial_gallery_css -%}
+  <style>
+    #sh-{{ section.id }}.sh-image-gallery-slider-section {background-color: {{section.settings.bg_color}};padding-top: {{ section.settings.top_padding_desktop }}px;padding-bottom: {{section.settings.bottom_padding_desktop}}px;}
+    #sh-{{ section.id }}.sh-image-gallery-slider-section .sh-page-width {max-width: {{ section.settings.sp_page_with }}px;width: 100%;padding: 0 20px;margin: 0 auto;}
+    #sh-{{ section.id }} .sh-image-gallery-slider-wrapper h2 {font-size: {{ section.settings.title_font_size }}px;color: {{section.settings.title_color}};font-weight: 500;margin: 0 0 20px;}
+    #sh-{{ section.id }} .sh-image-gallery-slider-wrapper{display:flex; align-items: center;}
+    #sh-{{ section.id }} .sh-tstm-text-slider {max-width: 482px;width: 40%;flex: 1 1 auto;margin: 0 55px 30px 0; display: flex; flex-wrap: wrap; justify-content: center;}
+    #sh-{{ section.id }} .sh-tstm-text-slider .sh-tstm-txt-slide span {font-size: 18px; color: #121212bf;line-height: 1.4;font-weight: 500;}
+    #sh-{{ section.id }} .sh-tstm-text-slider p {width: 100%;display: block;margin: 0 auto 10px;font-size: {{ section.settings.content_font_size }}px;color: {{section.settings.content_color}};line-height: 1.4;}
+    #sh-{{ section.id }} .sh-tstm-text-slider .sh-tstm-txt-image {width: 100%;display: block;padding-bottom: 105.597015%;position: relative;overflow: hidden;}
+    #sh-{{ section.id }} .sh-tstm-text-slider .sh-tstm-txt-image img {position: absolute;top: 0;left: 0;width: 100%;height: 100%;object-fit: cover;transform: scale(1.15);transition: all 0.5s ease-in-out;}
+    #sh-{{ section.id }} .sh-tstm-text-slider .swiper-slide-active .sh-tstm-txt-image img {transform: scale(1);z-index: 9;}
+    #sh-{{ section.id }} .swiper-button-prev{margin-left: 8px;}
+    #sh-{{ section.id }} .swiper-button-prev.sh-slider-arrow-prev svg {transform: rotate(180deg);} 
+    #sh-{{ section.id }} .swiper-button-next:after, #sh-{{ section.id }} .swiper-button-prev:after{content:unset;}
+    #sh-{{ section.id }} .sh-tstm-images-wrapper {width: 60%;flex: 1 1 auto;margin-bottom: auto;position: relative;} 
+    #sh-{{ section.id }} .sh-tstm-images-slider {width: 100%;height: auto;float: left;}
+    #sh-{{ section.id }} .sh-tstm-images-slider .swiper-button-prev, #sh-{{ section.id }} .sh-tstm-images-slider .swiper-button-next {display: none;}
+    #sh-{{ section.id }} .sh-tstm-images-slider .swiper-wrapper {transition: transform 400ms cubic-bezier(0.4, 0, 0.6, 1);}
+    #sh-{{ section.id }} .sh-tstm-images-slider .sh-test-img-box {width: 100%;display: block;padding-bottom: 105.597015%;position: relative;background: #F0F0F0;overflow: hidden;} 
+    #sh-{{ section.id }} .sh-tstm-images-slider .sh-test-img-box img {position: absolute;top: 0;left: 0;width: 100%;height: 100%;display: block;object-fit: cover;}
+    #sh-{{ section.id }} .sh-tstm-images-slider-1 .sh-test-img-box img {transform: scale(1.15);transition: all 0.5s ease-in-out;}
+    #sh-{{ section.id }} .sh-tstm-images-slider-1 .sh-test-img-box.swiper-slide-active img {transform: scale(1);z-index: 9;}
+    #sh-{{ section.id }} .swiper-button-next, 
+    #sh-{{ section.id }} .swiper-button-prev {width: {{ section.settings.arrow_size | plus:20 }}px;height: {{ section.settings.arrow_size | plus:20 }}px;background: {{section.settings.arrow_bg_color}}; border-radius: 50px;border: 1px solid {{section.settings.arrow_border_color}};position: static;margin: 15px 12px 0px; }
+    #sh-{{ section.id }} .swiper-button-next svg, 
+    #sh-{{ section.id }} .swiper-button-prev svg {fill: {{section.settings.arrow_color}};width: {{ section.settings.arrow_size }}px;height: {{ section.settings.arrow_size }}px; }
+  
+    @media only screen and (min-width: 768px) {
+      #sh-{{ section.id }} .sh-visible-xs {display: none !important;}
+      #sh-{{ section.id }} .sh-tstm-images-slider {width: 67.591425%;}
+      #sh-{{ section.id }} .sh-tstm-images-slider:nth-child(2) {width: 29.8865069%;float:right;}
+      #sh-{{ section.id }} .sh-tstm-images-slider:nth-child(3) {width: 29.8865069%;position: absolute;bottom: 0;right: 0;}
+      #sh-{{ section.id }} .sh-tstm-images-slider:nth-child(2) .sh-test-img-box {padding-bottom: 113.924051%;}
+      #sh-{{ section.id }} .sh-tstm-images-slider:nth-child(3) .sh-test-img-box {padding-bottom: 116.455696%;}
+    }
+    
+    @media only screen and (max-width: 767px) {
+      #sh-{{ section.id }} .sh-hidden-xs {display: none !important;}
+      #sh-{{ section.id }} .sh-image-gallery-slider-wrapper{ flex-direction: column;}
+      #sh-{{ section.id }} .sh-tstm-text-slider {width: 100%;margin: 0 auto;}
+      #sh-{{ section.id }} .sh-tstm-text-slider .sh-tstm-txt-image {padding-bottom: 105.172414%;margin-bottom: 33px;}
+      #sh-{{ section.id }} .sh-image-gallery-slider-wrapper h2 {font-size: 26px;}
+      #sh-{{ section.id }} .sh-tstm-text-slider p {font-size: 14px;}
+      #sh-{{ section.id }} .sh-tstm-text-slider .sh-tstm-txt-slide span {font-size: 16px;}
+      #sh-{{ section.id }} .swiper-button-prev, #sh-{{ section.id }} .swiper-button-next {margin: 5px 9.5px 5px;}  
+      #sh-{{ section.id }} .swiper-button-next, #sh-{{ section.id }} .swiper-button-prev {width: 30px;height: 30px;} 
+      #sh-{{ section.id }} .swiper-button-next svg, #sh-{{ section.id }} .swiper-button-prev svg {width: 12px;height: 12px;}
+      #sh-{{ section.id }}.sh-image-gallery-slider-section {padding-top: {{ section.settings.top_padding_mobile }}px;padding-bottom: {{section.settings.bottom_padding_mobile }}px;}
+    }
+  </style>
+{% endcapture %}
+{{ sh_testimonial_gallery_css | strip_newlines }}
+
+<div id="sh-{{ section.id }}" class="sh-image-gallery-slider-section">
+  <div class="sh-page-width">
+    <div class="sh-image-gallery-slider-wrapper">
+      <div class="swiper sh-tstm-text-slider sp-title-align-center">
+        <div class="swiper-wrapper">
+          {% for i in (1..3) %}
+            {% capture title %}title{{ i }}{% endcapture %}
+            {% capture content %}content{{ i }}{% endcapture %}
+            {% capture m_image %}m_image{{ i }}{% endcapture %}
+            {% capture d_image %}image{{ i }}{% endcapture %}
+            
+            <div class="swiper-slide sh-tstm-txt-slide">
+              <div class="sh-tstm-txt-image sh-visible-xs">
+                {% if section.settings[m_image] != blank %}
+                  <img src="{{ section.settings[m_image] | image_url }}" width="" height="" loading="lazy" alt="{{ section.settings[m_image].alt }}">
+                {% elsif section.settings[d_image] != blank %}
+                  <img src="{{ section.settings[d_image] | image_url }}" width="" height="" loading="lazy" alt="{{ section.settings[m_image].alt }}">
+                {% else %}
+                  <img src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Crect x='2' y='2' width='496' height='496' fill='%23D8D8D8' stroke='%23D8D8D8' stroke-width='4'/%3E%3C/g%3E%3C/svg%3E" width="" height="" loading="lazy" alt="image {{ forloop.index }}">
+                {% endif %}
+              </div>
+              {% if section.settings[title] != blank %}<h2>{{ section.settings[title] }}</h2>{% endif %}
+              {{ section.settings[content] }}
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-button-prev sh-slider-arrow-prev">{% render 'sh-arrows', arrow:'prev' %}</div>
+        <div class="swiper-button-next sh-slider-arrow-next">{% render 'sh-arrows', arrow:'next' %}</div>
+      </div>
+      
+      <div class="sh-tstm-images-wrapper sh-hidden-xs">
+        {% for i in (1..3) %}
+          <div class="swiper sh-tstm-images-slider sh-tstm-images-slider-{{ i }}">
+            <div class="swiper-wrapper">
+              <div class="sh-test-img-box swiper-slide">
+                {% if section.settings.image1 != blank %}
+                  <img src="{{ section.settings.image1 | image_url }}" width="" height="" alt="{{ section.settings.image1.alt }}">
+                {% else %}
+                  <img src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Crect x='2' y='2' width='496' height='496' fill='%23D8D8D8' stroke='%23D8D8D8' stroke-width='4'/%3E%3C/g%3E%3C/svg%3E" width="" height="" loading="lazy" alt="image 1">
+                {% endif %}
+              </div>
+              <div class="sh-test-img-box swiper-slide">
+                {% if section.settings.image2 != blank %}
+                  <img src="{{ section.settings.image2 | image_url }}" width="" height="" alt="{{ section.settings.image2.alt }}">
+                {% else %}
+                  <img src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Crect x='2' y='2' width='496' height='496' fill='%23D8D8D8' stroke='%23D8D8D8' stroke-width='4'/%3E%3C/g%3E%3C/svg%3E" width="" height="" loading="lazy" alt="image 1">
+                {% endif %}
+              </div>
+              <div class="sh-test-img-box swiper-slide">
+                {% if section.settings.image3 != blank %}
+                  <img src="{{ section.settings.image3 | image_url }}" width="" height="" alt="{{ section.settings.image3.alt }}">
+                {% else %}
+                  <img src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Crect x='2' y='2' width='496' height='496' fill='%23D8D8D8' stroke='%23D8D8D8' stroke-width='4'/%3E%3C/g%3E%3C/svg%3E" width="" height="" loading="lazy" alt="image 1">
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  new Swiper("#sh-{{ section.id }} .sh-tstm-text-slider", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    simulateTouch: false,
+    loop: true,
+    allowTouchMove: false,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true,
+    },
+    navigation: {
+      nextEl: "#sh-{{ section.id }} .swiper-button-next",
+      prevEl: "#sh-{{ section.id }} .swiper-button-prev",
+    },
+  });
+  
+  new Swiper("#sh-{{ section.id }} .sh-tstm-images-slider-1", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    noSwiping: true,
+    effect: 'fade',
+    loop: true,
+    simulateTouch: false,
+    allowTouchMove: false,
+    navigation: {
+      nextEl: "#sh-{{ section.id }} .swiper-button-next",
+      prevEl: "#sh-{{ section.id }} .swiper-button-prev",
+    }
+  });
+  
+  new Swiper("#sh-{{ section.id }} .sh-tstm-images-slider-2", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    simulateTouch: false,
+    allowTouchMove: false,
+    loop: true,
+    effect: 'creative',
+    creativeEffect: {
+      prev: {
+        translate: ['-100%', 0, 0],
+        opacity: 0,
+      },
+      next: {
+        translate: ['100%', 0, 0],
+        opacity: 0,
+      },
+    },
+    navigation: {
+      nextEl: "#sh-{{ section.id }} .swiper-button-next",
+      prevEl: "#sh-{{ section.id }} .swiper-button-prev",
+    },
+    on: {
+      init(event) {
+        event.slideTo(1, 0, false);
+      }
+    }
+  });
+  
+  new Swiper("#sh-{{ section.id }} .sh-tstm-images-slider-3", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    simulateTouch: false,
+    loop: true,
+    allowTouchMove: false,
+    effect: 'creative',
+    creativeEffect: {
+      prev: {
+        translate: ['100%', 0, 0],
+        opacity: 0,
+      },
+      next: {
+        translate: ['-100%', 0, 0],
+        opacity: 0,
+      },
+    },
+    navigation: {
+      nextEl: "#sh-{{ section.id }} .swiper-button-next",
+      prevEl: "#sh-{{ section.id }} .swiper-button-prev",
+    },
+    on: {
+      init(event) {
+        event.slideTo(2, 0, false);
+      }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "SH: Image gallery slider",
+  "tag": "section",
+  "class": "sh-section-hub-main",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Slider content"
+    },
+    {
+      "type": "paragraph",
+      "content": "Slide 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "m_image1",
+      "label": "Mobile image"
+    },
+    {
+      "type": "text",
+      "id": "title1",
+      "label": "Heading",
+      "default": "Heading 1"
+    },
+    {
+      "type": "richtext",
+      "id": "content1",
+      "label": "Content",
+      "default": "<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>"
+    },
+    {
+      "type": "paragraph",
+      "content": "Slide 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "m_image2",
+      "label": "Mobile image"
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "label": "Heading",
+      "default": "Heading 2"
+    },
+    {
+      "type": "richtext",
+      "id": "content2",
+      "label": "Content",
+      "default": "<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>"
+    },
+    {
+      "type": "paragraph",
+      "content": "Slide 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image3",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "m_image3",
+      "label": "Mobile image"
+    },
+    {
+      "type": "text",
+      "id": "title3",
+      "label": "Heading",
+      "default": "Heading 3"
+    },
+    {
+      "type": "richtext",
+      "id": "content3",
+      "label": "Content",
+      "default": "<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Font size"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 5,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "content_font_size",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Content",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Backgorund color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "Content color",
+      "default": "#000"
+    },
+    {
+      "type": "paragraph",
+      "content": "Arrow"
+    },
+    {
+      "type": "color",
+      "id": "arrow_bg_color",
+      "label": "Background color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "arrow_border_color",
+      "label":"Border color",
+      "default": "#000000"
+    },
+    {
+      "type": "number",
+      "id":"arrow_size",
+      "label": "Size (Desktop)",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "top_padding_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "bottom_padding_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 40
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "top_padding_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "bottom_padding_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 30
+    },
+    {
+      "type":"header",
+      "content": "Section width"
+    },
+    {
+      "type": "text",
+      "id": "sp_page_with",
+      "label": "Width (in px)",
+      "default": "1140"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SH: Image gallery slider"  
+    }
+  ],
+  "disabled_on": {
+    "groups": ["footer","header"]
+  }
+}
+{% endschema %}

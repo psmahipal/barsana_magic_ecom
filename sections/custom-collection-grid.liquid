@@ -1,0 +1,196 @@
+{% schema %}
+{
+  "name": "Custom Grid Layout",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "large_image",
+      "name": "Large Image",
+      "settings": [
+        {
+          "id": "large_image",
+          "type": "image_picker",
+          "label": "Large Image"
+        },
+        {
+          "id": "large_image_mobile",
+          "type": "image_picker",
+          "label": "Large Image for Mobile"
+        },
+        {
+          "id": "large_image_url",
+          "type": "url",
+          "label": "Image URL"
+        },
+        {
+          "id": "large_image_text",
+          "type": "text",
+          "label": "Image Text"
+        }
+      ]
+    },
+    {
+      "type": "small_image",
+      "name": "Small Image",
+      "settings": [
+        {
+          "id": "small_image",
+          "type": "image_picker",
+          "label": "Small Image"
+        },
+        {
+          "id": "small_image_url",
+          "type": "url",
+          "label": "Small Image URL"
+        },
+        {
+          "id": "small_image_text",
+          "type": "text",
+          "label": "Small Image Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Grid Layout",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="custom-grid-layout page-width-additional">
+  <h2 class="title inline-richtext h2 scroll-trigger animate--slide-in">Best Value Saver Pack</h2>
+  <div class="grid-container">
+    <div class="large-image">
+      {% for block in section.blocks %}
+        {% if block.type == 'large_image' %}
+          <a href="{{ block.settings.large_image_url }}">
+            <div class="large-image-wrapper">
+              <!-- Correct image source from image_picker -->
+              <img loading= 'lazy' width='3' height='7'
+                src="{{ block.settings.large_image | img_url: 'original' }}"
+                
+                class="for_desktop" />
+              <img src="{{ block.settings.large_image_mobile | img_url: 'original' }}" alt="{{ block.settings.large_image_text }}" class="for_mobile" loading= 'lazy' width='3' height='1'/>
+              <div class="image-text">{{ block.settings.large_image_text }}</div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="small-images">
+      {% for block in section.blocks %}
+        {% if block.type == 'small_image' %}
+          <div class="small-image">
+            <a href="{{ block.settings.small_image_url }}">
+              <img width='2' height='1' fetchpriority="high"
+                src="{{ block.settings.small_image | img_url: 'original' }}"/>
+              <div class="image-text">{{ block.settings.small_image_text }}</div>
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .custom-grid-layout .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Adjust column proportions for desktop */
+    gap: 10px;
+  }
+  .page-width-additional {
+    margin: 3rem 1.5rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .page-width-additional {
+      margin: 5rem 20rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .custom-grid-layout .grid-container {
+      grid-template-columns: 1fr; /* Single column for mobile */
+    }
+  }
+
+  /* Hide mobile image by default, show desktop image */
+  .large-image .for_mobile {
+    display: none;
+  }
+  .large-image .for_desktop {
+    display: block;
+  }
+
+  /* On mobile, hide desktop image and show mobile image */
+  @media (max-width: 768px) {
+    .large-image .for_mobile {
+      display: block;
+    }
+    .large-image .for_desktop {
+      display: none;
+    }
+  }
+
+  /* Large Image Styling */
+  .large-image-wrapper {
+    position: relative;
+  }
+
+  .large-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* Position the large image text at the bottom like a button */
+  .image-text {
+    position: absolute;
+    top: 20px; /* Position the text at the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center the text horizontally */
+    /* background-color: #005E36; */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    z-index: 1;
+    cursor: pointer;
+    width:100%;
+    font-size:25px;
+  }
+
+  /* Small Images Grid */
+  .small-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for desktop */
+    /* gap: 10px; */
+    gap: 3px 10px;
+  }
+
+  @media (max-width: 768px) {
+    .small-images {
+      grid-template-columns: 1fr; /* Single column for mobile */
+    }
+  }
+
+  .small-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  /* Image Text for small images */
+  .small-image .image-text {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+
+  }
+</style>

@@ -1,0 +1,119 @@
+{% schema %}
+{
+  "name": "Cart Product List",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "selected_collection",
+      "label": "Select Collection"
+    },
+    {
+      "type": "number",
+      "id": "max_products",
+      "label": "Max Products to Display",
+      "default": 5
+    }
+  ]
+}
+{% endschema %}
+
+<div class="collection-product-list">
+  {% if section.settings.selected_collection %}
+    {% assign collection = collections[section.settings.selected_collection] %}
+    {% if collection.products.size > 0 %}
+      <ul class="product-list">
+        {% for product in collection.products limit: section.settings.max_products %}
+          <li class="product-item">
+            <a href="{{ product.url }}" class="product-link">
+              <img src="{{ product.featured_image | img_url: 'small' }}" alt="{{ product.title }}" class="product-image" />
+              <h3 class="product-title">{{ product.title }}</h3>
+              <p class="product-price">{{ product.price | money }}</p>
+            </a>
+            <button 
+              type="button" 
+              class="add-to-cart-button" 
+              data-product-id="{{ product.variants.first.id }}" 
+              data-quantity="1">
+              Add to Cart
+            </button>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No products found in this collection.</p>
+    {% endif %}
+  {% else %}
+    <p>Please select a collection in the section settings.</p>
+  {% endif %}
+</div>
+
+<style>
+.collection-product-list {
+  padding: 20px;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.product-image {
+  max-width: 60px;
+  border-radius: 4px;
+}
+
+.product-title {
+  font-size: 16px;
+  margin: 0;
+}
+
+.product-price {
+  font-size: 14px;
+  color: #888;
+}
+
+.add-to-cart-button {
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.add-to-cart-button:hover {
+  background-color: #333;
+}
+</style>
+
+<script>
+  document.addEventListener('click', function (event) {
+  if (event.target.matches('.add-to-cart-button')) {
+    const productId = event.target.getAttribute('data-product-id');
+    const quantity = event.target.getAttribute('data-quantity');
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: productId, quantity: parseInt(quantity) }),
+    })
+      .then(response => response.json())
+      .then(() => {
+        // Optional: Reload the cart drawer to show updated contents
+        location.reload();
+      })
+      .catch(error => console.error('Error adding to cart:', error));
+  }
+});
+
+</script>

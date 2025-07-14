@@ -1,0 +1,224 @@
+<style>
+  .container{
+    width:90%;
+    margin:0 auto;
+    padding:15px;
+    border-radius:26px;
+    height:auto;
+  }
+  
+  .container>h2{
+    text-align:center;
+    font-size:28px;
+    font-weight:600;
+    color:#0C482C;
+  }
+  .main{
+   display: flex;
+  flex-wrap: nowrap;
+  }
+  
+  .sales{
+    height:100%;
+  width: 100%;
+  margin: 20px;
+    text-algin:center;
+     background-color:#F5F5F5;
+    padding:10px;
+    border-radius:18px;
+  }
+.main .sales>h3{
+  color:#328E6E;
+}
+.imgReponsive{
+  border-radius:18px;
+  cursor: pointer;
+}
+  .offerBtn{
+    width:80%;
+    margin:0 auto;
+  }
+  .btn{
+    width:100%;
+    height:90%;
+    border-radius:18px;
+    border:none;
+    background-color:#0c482c;
+  }
+  .btn>h3{
+    color:white;
+    margin:auto;
+  }
+  
+
+.btn:hover{
+  padding-right: 20px;
+  padding-left:8px;
+  background: hsla(152, 71%, 16%, 1);
+cursor:pointer;
+
+}
+
+.btn:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+ @media only screen and (max-width: 600px) {
+    .container{
+    width:100%;
+    margin:0 auto;
+    padding:15px;
+    border-radius:26px;
+    height:auto;
+  }
+   .main{
+    display: flex;
+     flex-flow: wrap;
+  }
+   .sales{
+     width: 100%;
+   }
+   .btn {
+    width: 100%;
+    height: 90%;
+    border-radius: 18px;
+    border: none;
+    background-color: #0c482c;
+}
+   .btn>h3{
+    color: white;
+    margin: auto;
+    font-size: 12px;
+    font-weight: bolder;
+  }
+ }
+</style>
+
+<div class="container">
+  <h2>{{ section.settings.mainHeading }} </h2>
+  
+  <div class="main">
+    <div class="sales">
+     
+      <a href="{{ section.settings.image_link }}">
+      <img src="{{ section.settings.my_image | img_url: 'master' }}" alt="Image Description" width="100%" height="100%" class="imgReponsive">
+        <div class="offerBtn">
+           <button class="btn"> <h3>{{ section.settings.saleHeading }}</h3></button>
+        </div>
+       
+      </a>
+        
+    </div>
+    
+    <div class="sales">
+     
+      <a href="{{ section.settings.second_image_url }}">
+       <img src="{{ section.settings.my_image_second | img_url: 'master' }}" alt="Image Description" width="100%" height="100%" class="imgReponsive">
+        <div class="offerBtn">
+           <button class="btn"> <h3>{{ section.settings.SecondsaleHeading }}</h3></button>
+        </div>
+        </a>
+    </div>
+    
+    <div class="sales">
+     <a href="{{ section.settings.third_image_url }}">
+      <img src="{{ section.settings.my_image_third | img_url: 'master' }}" alt="Image Description" width="100%" height="100%" class="imgReponsive">
+      <div class="offerBtn">
+        <button class="btn">  <h3>{{ section.settings.ThirdSecondsaleHeading }}</h3></button>
+      </div>
+       </a>
+    </div>
+    
+    <div class="sales">
+      <a href="{{ section.settings.fourth_image_url  }}">
+      <img src="{{ section.settings.my_image_four | img_url: 'master' }}" alt="Image Description" width="100%" height="100%" class="imgReponsive">
+        <div class="offerBtn">
+           <button class="btn">   <h3>{{ section.settings.FourSecondsaleHeading }}</h3></button>
+        </div>
+        </a> 
+    </div>
+      
+  </div>
+         
+</div>
+
+
+{% schema %}
+  {
+    "name": "Summer Sale Offers",
+    "settings": [
+      {
+        "type": "text",
+        "id": "mainHeading",
+        "label": "Main Heading"
+      },
+      {
+        "type": "text",
+        "id": "saleHeading",
+        "label": "First Offers"
+      },
+      
+      {
+      "type": "image_picker",
+      "id": "my_image",
+      "label": "Image"
+    },
+        {
+      "type": "url",
+      "id": "image_link",
+      "label": "Image Link"
+    },
+      {
+        "type": "text",
+        "id": "SecondsaleHeading",
+        "label": "Second Offers"
+      },
+       {
+      "type": "image_picker",
+      "id": "my_image_second",
+      "label": "Image"
+    },
+      {
+        "type": "url",
+        "id": "second_image_url",
+        "label": "Image Url"
+      },
+      {
+        "type": "text",
+        "id": "ThirdSecondsaleHeading",
+        "label": "Third Offers"
+      },
+        {
+      "type": "image_picker",
+      "id": "my_image_third",
+      "label": "Image"
+    },
+      {
+        "type": "url",
+        "id": "third_image_url",
+        "label": "Image Url"
+      },
+        {
+        "type": "text",
+        "id": "FourSecondsaleHeading",
+        "label": "Four Offers"
+      },
+        {
+      "type": "image_picker",
+      "id": "my_image_four",
+      "label": "Image"
+    },
+      {
+        "type": "url",
+        "id": "fourth_image_url",
+        "label": "Image Url"
+      }
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "Summer Sale Offers"
+      }
+    ]
+  }
+{% endschema %}

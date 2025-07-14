@@ -1,0 +1,302 @@
+{%- capture sp_faqs_css -%}
+<style>
+  #sp-{{ section.id }}.sp-faq-section { padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;background: {{ section.settings.bg_color }}; }
+  #sp-{{ section.id }} .sp-page-width {max-width: {{section.settings.section_max_width}}px;width: 100%;padding: 0 20px;margin: 0 auto;background: {{ section.settings.bg_color }};}
+  #sp-{{ section.id }} .sp-faq-section-heading { font-size: {{ section.settings.title_size }}px;font-weight: 500;margin: 0 0 20px;color: {{section.settings.title_color}};}
+  #sp-{{ section.id }} .sp-faq-title {margin-bottom: 30px;}
+  #sp-{{ section.id }} .sp-faq-section-desc p{margin:0;font-size: {{ section.settings.content_size }}px;line-height: 1.4;color: {{section.settings.content_color}};}
+  #sp-{{ section.id }} .sp-faq-section-wrap .sp-faq-section-rows {border-bottom: 1px solid {{section.settings.border_color}};}
+  #sp-{{ section.id }} .sp-faq-section-wrap button {font-family: inherit;position: relative;display: block;text-align: left;width: 100%;padding: 1em 0;font-size: {{ section.settings.faq_question_size }}px;font-weight: 400;border: none;background: none;outline: none;cursor: pointer;}
+  #sp-{{ section.id }} .sp-faq-section-wrap button .sp-faq-section-que {padding: 0 3em 0 0;display: block;line-height: 1.4;color: {{section.settings.question_color}};}
+  #sp-{{ section.id }} .sp-faq-section-wrap button .sp-faq-icon {display: inline-block;position: absolute;top: 18px;right: 0;width: 22px;height: 22px;border: 1px solid;border-radius: 22px;color: {{section.settings.question_color}};}
+  #sp-{{ section.id }} .sp-faq-section-wrap button .sp-faq-icon::before {display: block;position: absolute;content: '';top: 9px;left: 5px;width: 10px;height: 2px;background: currentColor;color: {{section.settings.question_color}};}
+  #sp-{{ section.id }} .sp-faq-section-wrap button .sp-faq-icon::after {display: block;position: absolute;content: '';top: 5px;left: 9px;width: 2px;height: 10px;background: currentColor;color: {{section.settings.question_color}};}
+  #sp-{{ section.id }} .sp-faq-section-wrap button[aria-expanded='true'] .sp-faq-icon::after {width: 0;}
+  #sp-{{ section.id }} .sp-faq-section-wrap button[aria-expanded='true'] + .sp-faq-section-ans {opacity: 1;max-height: 100%;transition: all 200ms linear;will-change: opacity, max-height;}
+  #sp-{{ section.id }} .sp-faq-section-wrap .sp-faq-section-ans {opacity: 0;max-height: 0;overflow: hidden;transition: opacity 200ms linear, max-height 200ms linear;will-change: opacity, max-height;}
+  #sp-{{ section.id }} .sp-faq-section-wrap .sp-faq-section-ans p {font-size: {{ section.settings.faq_answer_size }}px;line-height: 1.4;margin: 10px 0 25px;color: {{section.settings.answer_color}}}
+  
+  @media only screen and (max-width: 767px){
+    #sp-{{ section.id }} .sp-faq-section-wrap .sp-faq-section-ans p {margin: 0 0 15px;font-size:14px; }
+    #sp-{{ section.id }}.sp-faq-section {padding: {{ section.settings.mob_padding_top }}px 0 {{ section.settings.mob_padding_bottom }}px;}
+    #sp-{{ section.id }} .sp-faq-section-heading{font-size: 26px; margin: 0 0 10px;}
+    #sp-{{ section.id }} .sp-faq-section-desc p{font-size: 14px;} 
+    #sp-{{ section.id }} .sp-faq-section-wrap button{font-size: 15px;}   
+    
+    
+  }
+</style>
+{%- endcapture -%}
+{{- sp_faqs_css | strip_newlines -}}
+ 
+{% if section.blocks.size > 0 %}
+  <div id="sp-{{ section.id }}" class="sp-faq-section">
+    <div class="sp-page-width">  
+      {% if section.settings.title != blank or section.settings.content != blank %}
+        <div class="sp-faq-title sp-title-align-{{ section.settings.content_align }}">
+          {% if section.settings.title != blank %}
+            <h2 class="sp-faq-section-heading">{{ section.settings.title }}</h2>
+          {% endif %}
+          
+          {% if section.settings.content != blank %}
+            <div class="sp-faq-section-desc sp-section-desc">
+              {{ section.settings.content }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="sp-faq-section-wrap">
+        {% for block in section.blocks %}
+          {% if block.settings.title != blank and block.settings.ans != blank %}
+            <div class="sp-faq-section-rows">
+              <button id="sp-faq-button-1" aria-expanded="false">
+                <span class="sp-faq-section-que">{{ block.settings.title }}</span>
+                <span class="sp-faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="sp-faq-section-ans">
+                {{ block.settings.ans }}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const faqItems{{section.index}} = document.querySelector("#sp-{{ section.id }}").querySelectorAll('.sp-faq-section-wrap button');
+    function toggleFaqsAccordion() {
+      const faqItemToggle = this.getAttribute('aria-expanded');
+      for (i = 0; i < faqItems{{section.index}}.length; i++) {
+        faqItems{{section.index}}[i].setAttribute('aria-expanded', 'false');
+      }
+      if (faqItemToggle == 'false') {
+        this.setAttribute('aria-expanded', 'true');
+      }
+    }
+    faqItems{{section.index}}.forEach((faqItem) => faqItem.addEventListener('click', toggleFaqsAccordion));
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "SH: FAQs",
+  "tag":"section",
+  "class": "sh-section-hub-main",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default":"FAQ"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>Get answers to the questions that matter most.</p>"
+    },
+    {
+      "type":"text_alignment",
+      "id":"content_align",
+      "label": "Text alignment",
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Font size"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "content_size",
+      "min": 5,
+      "max": 30,
+      "step": 1, 
+      "unit": "px",
+      "label": "Content",
+      "default": 16
+    },
+    {
+      "type": "paragraph",
+      "content": "FAQ's"
+    },
+    {
+      "type": "range",
+      "id": "faq_question_size",
+      "min": 5,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "faq_answer_size",
+      "min": 5,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Content",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "Content color",
+      "default": "#121212"
+    },
+    {
+      "type": "paragraph",
+      "content": "FAQ's"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#d9d9d9"
+    },
+    {
+      "type": "color",
+      "id": "question_color",
+      "label": "Heading color",
+      "default": "#111"
+    },
+    {
+      "type": "color",
+      "id": "answer_color",
+      "label": "Content color",
+      "default": "#121212"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 40
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "mob_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mob_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "text",
+      "id": "section_max_width",
+      "label": "Width (in px)",
+      "default": "1140"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "limit": 25,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question",
+          "default": "How can I use the FAQ section to make my shop better?"
+        },
+        {
+          "type": "richtext",
+          "id": "ans",
+          "label": "Answer",
+          "default": "<p>Simply put, FAQ sections sell. The section allows you to answer questions and improve the odds of your potential customer making a purchase decision.</p>"
+        }
+      ]
+    }
+  ],
+  "presets":[
+    {
+      "name": "SH: FAQs",
+      "blocks": [
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["footer","header"]
+  }
+}
+{% endschema %}

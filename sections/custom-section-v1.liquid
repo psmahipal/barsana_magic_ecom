@@ -1,0 +1,147 @@
+{% schema %}
+{
+  "name": "Custom Grid Layout",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "large_image",
+      "name": "Large Image",
+      "settings": [
+        {
+          "id": "large_image",
+          "type": "image_picker",
+          "label": "Large Image"
+        },
+        {
+          "id": "large_image_url",
+          "type": "url",
+          "label": "Large Image URL"
+        },
+        {
+          "id": "large_image_text",
+          "type": "text",
+          "label": "Large Image Text"
+        }
+      ]
+    },
+    {
+      "type": "small_image",
+      "name": "Small Image",
+      "settings": [
+        {
+          "id": "small_image",
+          "type": "image_picker",
+          "label": "Small Image"
+        },
+        {
+          "id": "small_image_url",
+          "type": "url",
+          "label": "Small Image URL"
+        },
+        {
+          "id": "small_image_text",
+          "type": "text",
+          "label": "Small Image Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Grid Layout",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="custom-grid-layout page-width">
+  <div class="grid-container">
+    <div class="large-image">
+      {% for block in section.blocks %}
+        {% if block.type == 'large_image' %}
+          <a href="{{ block.settings.large_image_url }}">
+            <div class="large-image-wrapper">
+              <!-- Correct image source from image_picker -->
+              <img src="{{ block.settings.large_image | img_url: 'original' }}" alt="{{ block.settings.large_image_text }}">
+              <!-- Image Text Button at the Bottom -->
+              <div class="image-text">{{ block.settings.large_image_text }}</div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="small-images">
+      {% for block in section.blocks %}
+        {% if block.type == 'small_image' %}
+          <div class="small-image">
+            <a href="{{ block.settings.small_image_url }}">
+              <!-- Correct image source for small images -->
+              <img src="{{ block.settings.small_image | img_url: 'original' }}" alt="{{ block.settings.small_image_text }}">
+              <div class="image-text">{{ block.settings.small_image_text }}</div>
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .custom-grid-layout .grid-container {
+    display: grid;
+    grid-template-columns: 2fr 3fr; /* Adjust column proportions */
+    gap: 10px;
+  }
+
+  /* Large Image Styling */
+  .large-image-wrapper {
+    position: relative;
+  }
+
+  .large-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* Position the large image text at the bottom like a button */
+  .image-text {
+    position: absolute;
+    bottom: 20px; /* Position the text at the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center the text horizontally */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-align: center;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  /* Small Images Grid */
+  .small-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .small-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  /* Image Text for small images */
+  .small-image .image-text {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+  }
+</style>

@@ -1,0 +1,190 @@
+<section class="whybarsana-section">
+  <div class="page-width">
+    <!-- Title -->
+    <h2>{{ section.settings.title }}</h2>
+    
+    <!-- Slider Wrapper -->
+    <div class="whybarsana-section__slider">
+      <div class="whybarsana-section__wrapper">
+        <div class="whybarsana-section__item">
+          <img src="{{ section.settings.image_1 | image_url }}" alt="Why Barsana" width="1" height="1">
+          <p class="whybarsana-section__image-title">{{ section.settings.image_title_1 }}</p>
+        </div>
+        <div class="whybarsana-section__item">
+          <img src="{{ section.settings.image_2 | image_url }}" alt="Why Barsana" width="1" height="1"/>
+          <p class="whybarsana-section__image-title">{{ section.settings.image_title_2 }}</p>
+        </div>
+        <div class="whybarsana-section__item">
+          <img src="{{ section.settings.image_3 | image_url }}" alt="Why Barsana" width="1" height="1"/>
+          <p class="whybarsana-section__image-title">{{ section.settings.image_title_3 }}</p>
+        </div>
+        <div class="whybarsana-section__item">
+          <img src="{{ section.settings.image_4 | image_url }}" alt="Why Barsana" width="1" height="1"/>
+          <p class="whybarsana-section__image-title">{{ section.settings.image_title_4 }}</p>
+        </div>
+        <div class="whybarsana-section__item">
+          <img src="{{ section.settings.image_5 | image_url }}" alt="Why Barsana" width="1" height="1"/>
+          <p class="whybarsana-section__image-title">{{ section.settings.image_title_5 }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why Barsana Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "We Why Barsana"
+    },
+    {
+      "type": "color",
+      "id": "color_scheme_background",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "color_scheme_title",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Why Barsana Image 1"
+    },
+    {
+      "type": "text",
+      "id": "image_title_1",
+      "label": "Title for Image 1",
+      "default": "AUTHENTICITY"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Why Barsana Image 2"
+    },
+    {
+      "type": "text",
+      "id": "image_title_2",
+      "label": "Title for Image 2",
+      "default": "TRADITION"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Why Barsana Image 3"
+    },
+    {
+      "type": "text",
+      "id": "image_title_3",
+      "label": "Title for Image 3",
+      "default": "HONESTY"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Why Barsana Image 4"
+    },
+    {
+      "type": "text",
+      "id": "image_title_4",
+      "label": "Title for Image 4",
+      "default": "PURPOSE"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_5",
+      "label": "Why Barsana Image 5"
+    },
+    {
+      "type": "text",
+      "id": "image_title_5",
+      "label": "Title for Image 5",
+      "default": "PURPOSE"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Barsana Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+
+
+<style>
+.whybarsana-section {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.whybarsana-section__title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.whybarsana-section__wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.whybarsana-section__item {
+  flex: 1 1 calc(20% - 10px); /* Default for larger screens */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.whybarsana-section__item img {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+
+.whybarsana-section__image-title {
+  margin-top: 10px;
+}
+
+/* Adjust layout for mobile to a horizontal scrollable line */
+@media (max-width: 768px) {
+  .whybarsana-section__wrapper {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Add horizontal scroll */
+    gap: 15px; /* Space between items */
+  }
+
+  .whybarsana-section__item {
+    flex: 0 0 auto; /* Prevent items from shrinking or growing */
+    width: 120px; /* Fixed width for each item */
+  }
+
+  .whybarsana-section__item img {
+    width: 80px; /* Smaller image size for mobile */
+  }
+
+  .whybarsana-section__wrapper::-webkit-scrollbar {
+    height: 6px; /* Customize scrollbar height */
+  }
+
+  .whybarsana-section__wrapper::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Customize scrollbar color */
+    border-radius: 3px; /* Rounded edges for the scrollbar */
+  }
+
+  .whybarsana-section__wrapper::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Background for the scrollbar track */
+  }
+}
+</style>

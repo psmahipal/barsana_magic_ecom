@@ -1,0 +1,75 @@
+<style>
+  .estimated-delivery-date--container{
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid;
+  border-radius: 10px;
+  padding-block: 0.7rem;
+  padding-inline: 1rem;
+  background: #E1EACD;
+}
+
+  @media only screen and (min-width: 750px){
+    .estimated-delivery-date--container::after,
+    .estimated-delivery-date--container::before{
+      content: "";
+      margin: auto;
+    }
+  }
+
+
+.estimated-delivery-date--content{
+  width: calc(33% - 20px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.estimated-delivery-date--content svg {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 5px;
+}
+
+.estimated-delivery-date--content span {
+  font-size: 1em;
+  line-height: 1.2;
+}
+
+@media only screen and (max-width: 749px){
+   .estimated-delivery-date--container {
+     padding-inline: 0.2rem;
+   }
+}
+</style>
+
+<div class="estimated-delivery-date--container">
+  <div class="estimated-delivery-date--content">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-check-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0m-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/>
+</svg>
+    <span>Ordered</span>
+    <span>{{ "now" | date: "%d %b" }}</span>
+  </div>
+  
+  <div class="estimated-delivery-date--content">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-airplane-fill" viewBox="0 0 16 16">
+  <path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849"/>
+</svg>
+    <span>Shipped</span>
+    <span>{{ "now" | date: "%s" | plus: 86400 | date: "%d %b" }}</span>
+  </div>
+  <div class="estimated-delivery-date--content">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2-heart-fill" viewBox="0 0 16 16">
+  <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4zM8.5 4h6l.5.667V5H1v-.333L1.5 4h6V1h1zM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+</svg>
+    <span>Delivered</span>
+    <span>{{ "now" | date: "%s" | plus: 432000 | date: "%d %b" }}</span>
+  </div>
+</div>

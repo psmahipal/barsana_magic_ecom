@@ -1,0 +1,169 @@
+<section class="believes-section" style="background-color: {{ section.settings.color_scheme_background }};">
+  <div class="page-width">
+    <!-- Title -->
+    <h2 style="color: {{ section.settings.color_scheme_title }};">{{ section.settings.title }}</h2>
+    
+    <!-- Slider Wrapper -->
+    <div class="believes-section__slider">
+      <div class="believes-section__wrapper">
+        <div class="believes-section__item">
+          <img src="{{ section.settings.image_1 | image_url }}" alt="Believe" />
+          <p class="believes-section__image-title">{{ section.settings.image_title_1 }}</p>
+        </div>
+        <div class="believes-section__item">
+          <img src="{{ section.settings.image_2 | image_url }}" alt="Believe" />
+          <p class="believes-section__image-title">{{ section.settings.image_title_2 }}</p>
+        </div>
+        <div class="believes-section__item">
+          <img src="{{ section.settings.image_3 | image_url }}" alt="Believe" />
+          <p class="believes-section__image-title">{{ section.settings.image_title_3 }}</p>
+        </div>
+        <div class="believes-section__item">
+          <img src="{{ section.settings.image_4 | image_url }}" alt="Believe" />
+          <p class="believes-section__image-title">{{ section.settings.image_title_4 }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "We Believes Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "We Believe"
+    },
+    {
+      "type": "color",
+      "id": "color_scheme_background",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "color_scheme_title",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Believe Image 1"
+    },
+    {
+      "type": "text",
+      "id": "image_title_1",
+      "label": "Title for Image 1",
+      "default": "AUTHENTICITY"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Believe Image 2"
+    },
+    {
+      "type": "text",
+      "id": "image_title_2",
+      "label": "Title for Image 2",
+      "default": "TRADITION"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Believe Image 3"
+    },
+    {
+      "type": "text",
+      "id": "image_title_3",
+      "label": "Title for Image 3",
+      "default": "HONESTY"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Believe Image 4"
+    },
+    {
+      "type": "text",
+      "id": "image_title_4",
+      "label": "Title for Image 4",
+      "default": "PURPOSE"
+    }
+  ],
+  "presets": [
+    {
+      "name": "We Believes Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+
+
+<style>
+
+.believes-section {
+  padding: 50px 0;
+  text-align: center;
+  background-color: {{ section.settings.color_scheme_background }};
+}
+
+.believes-section__title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.believes-section__wrapper {
+  display: flex;
+  justify-content: space-between; /* Distributes images evenly */
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.believes-section__item {
+  flex: 1 1 calc(25% - 10px); /* Default for larger screens, 4 items per row */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.believes-section__item img {
+  width: 100px; /* Ensures images take up full width of the container */
+  height: auto;
+  display: block;
+}
+
+.believes-section__image-title {
+  margin-top: 10px;
+  color: {{ section.settings.color_scheme_title }};
+}
+
+/* Media Query for tablets and below (adjust to 4 images per row) */
+@media (max-width: 768px) {
+  .believes-section__item {
+    flex: 1 1 calc(25% - 10px); /* Keep 4 images per row on smaller screens */
+  }
+
+  .believes-section__item img {
+    width: 50px; /* Ensures images are responsive and take full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .believes-section__item {
+    flex: 1 1 100%; /* Stack images vertically on very small screens */
+  }
+
+  .believes-section__item img {
+    width: 100px; /* Ensure full width for mobile screens */
+  }
+}
+
+</style>
+

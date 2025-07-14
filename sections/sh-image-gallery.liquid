@@ -1,0 +1,363 @@
+{%- capture sp_image_gallery_css -%}
+<style>
+  #sp-{{ section.id }}.sp-image-tiles {padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;background: {{section.settings.bg_color}};}
+  #sp-{{ section.id }} .sp-page-with {max-width: {{ section.settings.section_max_width }}px;width: 100%;padding: 0 20px;margin: 0 auto;}
+  #sp-{{ section.id }} .sp-img-tiles-grid {display: grid;grid: auto-flow dense / repeat(4, minmax(0, 1fr));gap: {{ section.settings.gap }}px;}
+  #sp-{{ section.id }} .sp-img-tiles-grid-media {position: relative;display: block;padding-bottom: 100%;border-radius: {{ section.settings.border }}px;overflow: hidden; height: 100%;}
+  #sp-{{ section.id }} .sp-img-tiles-grid-media img {position: absolute;top: 0;left: 0;right: 0;bottom: 0;width: 100%;height: 100%;object-fit: cover;object-position: center;}
+  #sp-{{ section.id }} .sp-img-tiles-griditem-info {position: relative;height:100%; border-radius: {{ section.settings.border }}px; overflow: hidden;}
+  #sp-{{ section.id }} .sp-img-tiles-grid-txt {position: absolute;bottom: 0;left: 0; z-index: 1; width:100%; height:100%;}
+  #sp-{{ section.id }} .sp-img-tiles-grid-txt h3{margin: 0;font-size: {{ section.settings.tile_title_font_size }}px;line-height: 1.3;font-weight: 600;}
+  #sp-{{ section.id }} .sp-img-tiles-grid-txt p {color: #fff;font-size: {{ section.settings.tile_content_font_size }}px;margin: 5px 0 0 0;line-height: 1.3;/*text-overflow: ellipsis;overflow: hidden;display: -webkit-box;-webkit-line-clamp:2;-webkit-box-orient: vertical;*/}
+  #sp-{{ section.id }} .sp-img-tiles-griditem.sp-grid-one-half {grid-area: span 2 / span 2;}
+  #sp-{{ section.id }} .sp-img-tiles-griditem.sp-grid-one-quarter {grid-area: span 1 / span 1;}
+  #sp-{{ section.id }} .sp-img-tiles-griditem.sp-grid-two-half {grid-area: span 1 / span 2; }
+  #sp-{{ section.id }} .sp-img-tiles-griditem.sp-grid-two-half .sp-img-tiles-grid-media{padding-bottom: 50%;}
+
+  #sp-{{ section.id }} .sp-image-tiles-heading {font-size: {{ section.settings.title_font_size }}px;font-weight: 500;margin: 0 0 10px;color: {{section.settings.title_color}};}
+  #sp-{{ section.id }} .sp-image-tiles-title {margin-bottom: 30px;}
+  #sp-{{ section.id }} .sp-image-tiles-desc p{margin:0;font-size: {{ section.settings.content_font_size }}px;line-height: 1.4;color: {{section.settings.content_color}};}
+
+  #sp-{{ section.id }} .sp-img-tiles-griditem-info:after {background: {{section.settings.tiles_bg_color}};position: absolute;content: ''; width: 100%; height: 45%;bottom: 0;left: 0; opacity:0;}
+  #sp-{{ section.id }} .sp-img-tiles-grid-title{position: absolute;width: 100%;height: 100%;display: flex;justify-content: start;align-items: end;padding: 0 15px 20px ;text-align: left; color: #fff;transition: .2s ease-in-out .2s;align-items: flex-end;bottom: 0;}
+  #sp-{{ section.id }} .sp-img-tiles-griditem-info:hover .sp-img-tiles-grid-title{opacity:0;}
+  #sp-{{ section.id }} .sp-img-tiles-griditem-info:hover .sp-img-tiles-grid-subtxt{opacity:1;top:0;}
+  #sp-{{ section.id }} .sp-img-tiles-griditem-info:hover:after{opacity:1;}
+  #sp-{{ section.id }} .sp-img-tiles-grid-subtxt {z-index: 1; padding: 20px 15px;opacity: 0;cursor: pointer;position: absolute;width: 100%;bottom: 0;top: 100%;text-align: left;color: #fff;transition: all ease-in-out 0.4s;/*background: {{section.settings.tiles_bg_color}};*/display: flex;flex-direction: column;justify-content: end;}
+  
+  @media only screen and (max-width: 767px){
+    #sp-{{ section.id }}.sp-image-tiles {padding: {{ section.settings.mob_padding_top }}px 0 {{ section.settings.mob_padding_bottom }}px;}
+    #sp-{{ section.id }} .sp-image-tiles-heading {font-size: 26px;margin: 0 0 10px;}
+    #sp-{{ section.id }} .sp-image-tiles-title {margin-bottom: 20px;}
+    #sp-{{ section.id }} .sp-image-tiles-desc p{font-size: 14px;line-height: 1.4;} 
+    #sp-{{ section.id }} .sp-img-tiles-grid-txt h3{font-size:18px;}
+    #sp-{{ section.id }} .sp-img-tiles-grid-txt p {font-size: 12px;}
+    #sp-{{ section.id }} .sp-img-tiles-griditem{grid-area: span 2 / span 2;}
+    #sp-{{ section.id }} .sp-img-tiles-grid {gap: 8px;grid: auto-flow dense / repeat(2, minmax(0, 1fr));}
+    #sp-{{ section.id }} .sp-img-tiles-grid-title{padding: 0 10px 15px ;}
+    #sp-{{ section.id }} .sp-img-tiles-grid-subtxt {padding: 15px 10px} 
+  }
+</style>
+{% endcapture %}
+{{ sp_image_gallery_css | strip_newlines }}
+
+<div id="sp-{{ section.id }}" class="sp-image-tiles">
+  <div class="sp-page-with">
+    {% if section.settings.title != blank or section.settings.content != blank %}
+      <div class="sp-image-tiles-title sp-title-align-{{ section.settings.content_align }}">
+        {% if section.settings.title != blank %}
+          <h2 class="sp-image-tiles-heading">{{ section.settings.title }}</h2>
+        {% endif %}
+        
+        {% if section.settings.content != blank %}
+          <div class="sp-image-tiles-desc sp-section-desc">
+            {{ section.settings.content }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    
+    <div class="sp-img-tiles-grid">
+      {% for block in section.blocks %}
+        <a{% if block.settings.link != blank %} href="{{ block.settings.link }}"{% endif %} class="sp-img-tiles-griditem sp-grid-{{ block.settings.layout }}">
+          <div id="sp-block-{{ block.id }}" class="sp-img-tiles-griditem-info">
+            <div class="sp-img-tiles-grid-media{% if block.settings.image == blank %} sp-empty-img{% endif %}">
+              {% if block.settings.image != blank %}
+                <img src="{{ block.settings.image | image_url: width: block.settings.image.width }}" class="sp-img" width="" height="" loading="lazy" alt="{{ block.settings.image.alt }}">
+              {% endif %}
+            </div>
+
+            {% if block.settings.title != blank or block.settings.content != blank %}
+              <div class="sp-img-tiles-grid-txt">
+                {% if block.settings.title != blank %}
+                  <h3 class="sp-img-tiles-grid-title">{{ block.settings.title }}</h3>
+                {% endif %}
+                
+                <div class="sp-img-tiles-grid-subtxt">
+                  {% if block.settings.title != blank %}
+                    <h3>{{ block.settings.title }}</h3>
+                  {% endif %}
+                  {{ block.settings.content }}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+          
+          {% style %}
+            #sp-block-{{ block.id }} .sp-img-tiles-grid-txt h3, #sp-block-{{ block.id }} .sp-img-tiles-grid-txt p {color: {{block.settings.content_color}};}
+          {% endstyle %}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SH: Image gallery",
+  "tag": "section",
+  "class": "sh-section-hub-main",
+  "disabled_on": {
+    "groups": ["footer","header"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Image gallery"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>Our gallery section allows you to create a unique grid with a feature image. Use the section to feature your collections or products.</p>"
+    },
+    {
+      "type":"text_alignment",
+      "id":"content_align",
+      "label": "Text alignment",
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Tiles"
+    },
+    {
+      "type": "number",
+      "id":"gap",
+      "label": "Space around tiles",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id":"border",
+      "label": "Media border radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Font size"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 5,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "content_font_size",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Content",
+      "default": 16
+    },
+    {
+      "type": "paragraph",
+      "content": "Tiles"
+    },
+    {
+      "type": "range",
+      "id": "tile_title_font_size",
+      "min": 5,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "tile_content_font_size",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Content",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "Content color",
+      "default": "#121212"
+    },
+    {
+      "type": "paragraph",
+      "content": "Tiles"
+    },
+    {
+      "type":"color_background",
+      "id":"tiles_bg_color",
+      "label": "Hover background color",
+      "default": "linear-gradient(359deg, rgba(65, 65, 65, 0.6), rgba(20, 30, 53, 0) 59%)"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 40
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "mob_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mob_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "text",
+      "id": "section_max_width",
+      "label": "Width (in px)",
+      "default": "1140"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "Layout",
+          "options": [
+            { "label": "4/2", "value": "one-half" },
+            { "label": "2/1", "value": "two-half" },
+            { "label": "1/1", "value": "one-quarter" }
+          ],
+          "default": "two-half"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Feature Headline"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Our gallery section allows you to create a unique grid with a feature image. Use the section to feature your collections or products.</p>"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "color",
+          "id": "content_color",
+          "label": "Content color",
+          "default": "#fff"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SH: Image gallery",
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "layout": "one-half"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "layout": "two-half"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "layout": "one-quarter"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "layout": "one-quarter"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

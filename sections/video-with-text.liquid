@@ -1,0 +1,200 @@
+{% schema %}
+{
+  "name": "Video Section with Text",
+  "tag": "section",
+  "class": "section-video-text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video Section Settings"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Video URL (YouTube, Vimeo)",
+      "default": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "info": "Enter a YouTube or Vimeo video URL.",
+      "accept": ["youtube", "vimeo"]
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+      "info": "Choose a background image for the section."
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Your Video Heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "default": "This is where your description goes.",
+      "label": "Description"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full Width Section",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default Video Section",
+      "settings": {
+        "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "background_image": "shopify://shop_images/default-video-background.jpg",  // Replace with your own default image URL
+        "heading": "Check out our amazing video!",
+        "description": "This is an engaging description for the video section. It's a perfect spot to explain the video content.",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    }
+  ]
+}
+{% endschema %}
+
+<div class="section-video-text color-{{ section.settings.color_scheme }} gradient">
+
+  <div class="video-text-container{% if section.settings.full_width %} full-width{% endif %}" style="background-image: url({{ section.settings.background_image | image_url: width: 2000 }}); 
+     background-size: cover; 
+     background-position: center; 
+     padding-top: {{ section.settings.padding_top }}px;
+     padding-bottom: {{ section.settings.padding_bottom }}px;">
+
+    <!-- Video Section (Left Side) -->
+    <div class="video-section__left">
+      <div class="video-wrapper">
+        {% if section.settings.video_url %}
+          {% assign video_url = section.settings.video_url %}
+          {% if video_url contains 'youtube' %}
+            <iframe src="https://www.youtube.com/embed/{{ video_url | split: '?' | first | split: '/' | last }}" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+            </iframe>
+          {% elsif video_url contains 'vimeo' %}
+            <iframe src="https://player.vimeo.com/video/{{ video_url | split: '/' | last }}" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+            </iframe>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Text Section (Right Side) -->
+    <div class="video-section__right">
+      {% if section.settings.heading %}
+        <h3 class="section-heading">{{ section.settings.heading }}</h3>
+      {% endif %}
+      <p class="section-description">{{ section.settings.description }}</p>
+    </div>
+
+  </div>
+
+</div>
+<style>
+  /* General Section Styles */
+.section-video-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  min-height: 500px; /* Adjust as needed */
+}
+
+/* Video and Text Container */
+.video-text-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Left Side: Video */
+.video-section__left {
+  flex: 1;
+  position: relative;
+  padding-right: 20px; /* Space between video and text */
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+  border: none;
+}
+
+/* Right Side: Text */
+.video-section__right {
+  flex: 1;
+  padding-left: 20px;
+  text-align: left;
+  max-width: 500px; /* Limit text width */
+}
+
+.section-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f7f7f7;
+}
+
+/* Full-width setting */
+.video-text-container.full-width {
+  flex-direction: column;
+  text-align: center;
+}
+
+.video-text-container.full-width .video-section__left,
+.video-text-container.full-width .video-section__right {
+  width: 100%;
+  padding: 0;
+}
+
+/* Optional: Add responsiveness */
+@media (max-width: 768px) {
+  .video-text-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .video-section__left,
+  .video-section__right {
+    padding: 10px;
+  }
+}
+
+</style>

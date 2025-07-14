@@ -1,0 +1,302 @@
+{% comment %} 	
+    Collection Slider 
+    © 2024 Genius Maker
+{% endcomment %}
+
+
+{%- liquid 
+
+assign section_width = section.settings.section_width
+assign section_width_mobile = section.settings.section_width_mobile
+assign image_width_desktop = section.settings.image_width_desktop
+assign image_width_mobile = section.settings.image_width_mobile
+assign image_height_desktop = section.settings.image_height_desktop
+assign image_height_mobile = section.settings.image_height_mobile
+assign border_radius = section.settings.border_radius
+assign padding_top = section.settings.padding_top
+assign padding_bottom = section.settings.padding_bottom
+assign title_size = section.settings.title_size
+assign title_size_mobile = section.settings.title_size_mobile
+assign font_title = section.settings.font_title
+
+-%}
+
+<style>
+
+{{ font_title | font_face: font_display: 'swap' }}
+  
+   .{{ section.id }} {
+    width: {{ section_width }}%;
+    margin: 0 auto;
+    }
+
+     .{{ section.id }} .content-area{
+     text-align: center;
+     padding: auto 0px;
+     padding-top: {{ padding_top }}px !important;
+     padding-bottom: {{ padding_bottom }}px !important;
+   }
+    .{{ section.id }} .content-area img {
+    height: {{ image_height_desktop }}px;
+    width: {{ image_width_desktop }}px;
+    object-fit: cover;
+    border-radius: {{ border_radius }}px;
+    box-shadow: 0px 0px 7px 1px #000000d4;
+    border: solid 4px #fff;
+    margin: 0 auto;
+    transition: all 0.2s ease-in-out;
+    
+ }
+
+   .{{ section.id }} .content-area:hover img {
+     transform: scale(1.1);
+   }
+
+.{{ section.id }} .content-area a{
+    text-decoration: none;
+    
+  }
+
+  .{{ section.id }} h4 {
+    font-size: {{ title_size }}rem;
+    font-family: {{ font_title.family }}, {{ font_title.fallback_families }};
+  }
+  
+    @media screen and (max-width: 767px) 
+ { .{{ section.id }} {
+	  width: {{ section_width_mobile }}%;
+  }
+    }
+ 
+  @media screen and (max-width: 767px) 
+ { .{{ section.id }} h4 {
+	 font-size: {{ title_size_mobile }}rem;
+  }
+    }
+
+ @media screen and (max-width: 767px) 
+ { .{{ section.id }} .content-area img {
+	  height: {{ image_height_mobile }}px;
+    width: {{ image_width_mobile }}px;
+  }
+}    
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+
+
+
+<div class="collection-slider {{ section.id }}">
+{% for block in section.blocks %}
+  <div class="content-area">
+    <a href="{{ block.settings.cat_link }}">
+    <img src="{{ block.settings.cat_img | img_url:'' }}"/>
+    <h4> {{ block.settings.cat_title }} </h4>
+    </a>
+  </div>
+  {% endfor %}
+  
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+
+<script>
+ $('.collection-slider.{{ section.id }}').slick({
+  dots: false,
+   arrows: false,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 8,
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow:3,
+        slidesToScroll: 2
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+				
+
+    
+</script>
+
+
+{% schema %}
+  {
+    "name": "Collection Slider",
+    "settings": [
+         {
+          "type": "range",
+          "id": "section_width",
+          "label": "Section Width",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "default": 80,
+           "unit": "%"
+        },
+            {
+          "type": "range",
+          "id": "section_width_mobile",
+          "label": "Section Width Mobile",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "default": 100,
+           "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "image_width_desktop",
+          "label": "Image Width Desktop",
+          "min": 2,
+          "max": 200,
+          "step": 2,
+          "default": 100,
+        "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "image_height_desktop",
+          "label": "Image Height Desktop",
+          "min": 2,
+          "max": 200,
+          "step": 2,
+          "default": 100,
+        "unit": "px"
+        },
+          {
+          "type": "range",
+          "id": "image_width_mobile",
+          "label": "Image Width Mobile",
+          "min": 2,
+          "max": 200,
+          "step": 2,
+          "default": 72,
+           "unit": "px"
+        },
+          {
+          "type": "range",
+          "id": "image_height_mobile",
+          "label": "Image Height Mobile",
+          "min": 10,
+          "max": 200,
+          "step": 2,
+          "default": 72,
+           "unit": "px"
+        },
+           {
+          "type": "range",
+          "id": "border_radius",
+          "label": "Image Roundness",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "default": 100,
+         "unit": "px"
+        },
+         {
+          "type": "range",
+          "id": "padding_top",
+          "label": "Padding Top",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "default": 15,
+         "unit": "px"
+        },
+       {
+          "type": "range",
+          "id": "padding_bottom",
+          "label": "Padding Bottom",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "default": 15,
+         "unit": "px"
+        },
+      {
+        "type": "font_picker",
+        "id": "font_title",
+        "label": "Choose Font",
+        "default": "serif"
+      },
+        {
+          "type": "range",
+          "id": "title_size",
+          "label": "Title Font Size",
+          "min": 1,
+          "max": 10,
+          "step": 0.1,
+          "default": 1.5,
+          "unit": "rem"
+        },
+          {
+          "type": "range",
+          "id": "title_size_mobile",
+          "label": "Title Font Size Mobile",
+          "min": 0.1,
+          "max": 5,
+          "step": 0.1,
+          "default": 1,
+          "unit": "rem"
+        }
+    ],
+
+    "blocks":[{
+      "name": "Collection Slider",
+      "type": "collection-slider",
+      "settings":[
+        {
+          "type": "image_picker",
+          "id": "cat_img",
+          "label": "Collection Image"
+        },
+
+         {
+          "type": "text",
+          "id": "cat_title",
+          "label": "Collection Name"
+        },
+
+         {
+          "type": "url",
+          "id": "cat_link",
+          "label": "Choose Collection"
+        },
+      
+        
+      ]
+    }],
+    
+    "presets": [{
+      "name": "Collection Slider Section"
+    }]
+  }
+{% endschema %}
+

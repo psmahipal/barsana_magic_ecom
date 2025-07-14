@@ -1,0 +1,52 @@
+<style>
+  .live_visitors_gm {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 13px;
+  }
+
+  .live_visitors_gm::before {
+    position: absolute;
+    display: inline-block;
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: currentColor;
+    color: #21b646;
+    box-shadow: 0 0 0 0 #21b646;
+    border-radius: 100%;
+    margin-left: -14px;
+    transform: translateY(-50%, -50%);
+    animation: pulse-green 2s infinite;
+  }
+
+  @keyframes pulse-green {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(33, 182, 70, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(33, 182, 70, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(33, 182, 70, 0);
+    }
+  }
+</style>
+
+<p class="live_visitors_gm">
+  <span id="visitors_count_gm"></span>
+  <strong>{{ 'People are watching right now.' }}</strong>
+</p>
+
+<script>
+  const minVisitors = 50, maxVisitors = 500, delay= 5000;
+  const visitorsCount = document.getElementById('visitors_count_gm');
+  const updateVisitors = () => visitorsCount.textContent = Math.floor(Math.random() * (maxVisitors - minVisitors) + minVisitors);
+  updateVisitors();
+  setInterval(updateVisitors, delay);
+</script>

@@ -1,0 +1,95 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .account-deletion {
+    margin-bottom: 10px
+  }
+  .account-deletion__fields .field {
+      margin-bottom: 2rem;
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="account-deletion page-width page-width--narrow section-{{ section.id }}-padding">
+    <h2 class="title title-wrapper--no-top-margin">{{ 'Account Deletion Request' }}</h2>
+
+    {%- form 'contact', id: 'AccountDeletionForm', class: 'isolate' -%}
+      {%- if form.posted_successfully? -%}
+        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+          {{- 'icon-success.svg' | inline_asset_content -}}
+          Your request has been submitted successfully.
+        </h2>
+      {%- elsif form.errors -%}
+        <div class="form__message">
+          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+            {{- 'icon-error.svg' | inline_asset_content -}}
+            Please fix the errors below.
+          </h2>
+        </div>
+        <ul class="form-status-list caption-large" role="list">
+          {%- for field in form.errors.translated_fields -%}
+            <li>
+              <a href="#AccountDeletionForm-{{ field }}" class="link">
+                {{ field | capitalize }} {{ form.errors.messages[field] }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      <div class="account-deletion__fields">
+        <div class="field">
+          <input
+            class="field__input"
+            type="text"
+            id="AccountDeletionForm-name"
+            name="account_deletion[name]"
+            value="{{ customer.name }}"
+            placeholder="Your Name"
+            required
+          >
+          <label class="field__label" for="AccountDeletionForm-name">Your Name</label>
+        </div>
+        
+        <div class="field">
+          <input
+            class="field__input"
+            type="email"
+            id="AccountDeletionForm-email"
+            name="account_deletion[email]"
+            value="{{ customer.email }}"
+            placeholder="Your Email"
+            required
+          >
+          <label class="field__label" for="AccountDeletionForm-email">Your Email</label>
+        </div>
+
+        <div class="field">
+          <textarea
+            class="text-area field__input"
+            id="AccountDeletionForm-reason"
+            name="account_deletion[reason]"
+            placeholder="Reason for Account Deletion"
+            rows="4"
+            required
+          ></textarea>
+          <label class="field__label" for="AccountDeletionForm-reason">Reason for Account Deletion</label>
+        </div>
+      </div>
+      <div class="contact__button">
+        <button type="submit" class="button">Submit</button>
+      </div>
+    {%- endform -%}
+  </div>
+</div>

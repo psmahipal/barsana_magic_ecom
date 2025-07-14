@@ -1,0 +1,425 @@
+{% capture sh_tag_wise_image_text_css %}
+  <style>
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section {padding: {{section.settings.padding_top}}px 0 {{section.settings.padding_bottom}}px 0;background: {{section.settings.bg_color}};}
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-page-width {max-width: {{ section.settings.section_max_width }}px;width: 100%;padding: 0 20px;margin: 0 auto;} 
+    #sh-{{ section.id }} .sh-aboutUs-tabs-title {margin: 0 auto 30px;} 
+    #sh-{{ section.id }} .sh-aboutUs-tabs-title .sh-title {font-size: {{ section.settings.title_font_size }}px;color: {{section.settings.title_color}};font-weight: 500;line-height: 1.4;margin: 0 0 20px;}  
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-main-tab-content {display: flex;flex-wrap: wrap;align-items: center;background: #fff;}
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-main-tab-content > div {max-width: 50%;width: 100%;overflow: hidden;}
+    {% if section.settings.image_aspect_ratio == 'adapt' %}
+      #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-tab-image-ratio-adapt img {aspect-ratio: unset;} 
+    {% else %}
+      #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-tab-image-ratio-small img {aspect-ratio: 16/10;}
+      #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-tab-image-ratio-medium img {aspect-ratio: 1/1;}
+      #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-tab-image-ratio-large img {aspect-ratio: 9/10;}
+    {% endif %}
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-tab-image img {height: 100%;object-fit: cover;width: 100%;} 
+    
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-Tab-heading {display: flex;align-items: center;justify-content: space-evenly;padding: 30px 0; overflow-x: auto;}
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-ndiv h3 {font-weight: 500;font-size: {{ section.settings.tab_title_font_size }}px;line-height: 1.4;color:{{section.settings.tab_title_color}}; margin: 0 0 15px 0;}
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-text-content {padding: 20px 20px 20px 50px;} 
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-text-content.sh-text-content-left{text-align:left;}
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-text-content.sh-text-content-center{text-align:center;}
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-text-content.sh-text-content-right{text-align:right;} 
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-aboutUs-tabs-left-media{flex-direction: row;}
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-aboutUs-tabs-right-media{flex-direction: row-reverse;} 
+    #sh-{{ section.id }} .sh-tab-wise-imgtxt-desc p {margin:0;font-size: {{section.settings.content_font_size}}px;line-height: 1.4;color: {{section.settings.content_color}};}   
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-tab-content-hidden {display: none;}
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-tab-content-visible {display: block;}  
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-tablinks span {font-size: {{ section.settings.main_tab_title_font_size }}px;color: {{section.settings.tab_title_content_color}};line-height: 1.4;width: max-content;display: block;padding: 0 20px 8px;border-bottom: 2px solid transparent;}  
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-tablinks.active span {color: {{section.settings.active_tab_content_color}};border-bottom: 2px solid {{section.settings.active_tab_content_color}};}
+    #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-main-tab-content .sh-ndiv p {line-height: 1.5;color:{{ section.settings.tab_content_color }}; font-size: {{ section.settings.tab_content_font_size }}px; margin:0;}  
+    
+    @media only screen and (max-width: 767px){  
+      #sh-{{ section.id }}.sh-aboutUs-tabs-section {padding: {{ section.settings.mob_padding_top }}px 0 {{section.settings.mob_padding_bottom}}px 0;} 
+      #sh-{{ section.id }} .sh-aboutUs-tabs-title .sh-title {margin: 0 0 10px; font-size: 26px;}
+      #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-tablinks span {font-size: 16px;}  
+      #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-main-tab-content > div {max-width: 100%;}
+      #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-tab-image {height: auto;} 
+      #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-ndiv h3 {font-size: 24px;}  
+      #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-main-tab-content .sh-ndiv p {font-size: 14px;} 
+      #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-text-content {padding: 16px 20px;} 
+      #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-main-tab-content {background: transparent;} 
+      #sh-{{ section.id }}.sh-aboutUs-tabs-section .sh-Tab-heading {justify-content: flex-start;}
+    }
+  </style>
+{% endcapture %}
+{{ sh_tag_wise_image_text_css | strip_newlines }}
+
+<div id="sh-{{ section.id }}" class="sh-aboutUs-tabs-section" data-id="{{ section.id }}">
+  <div class="sh-page-width">
+    {% if section.settings.title != blank or section.settings.content != blank %}
+      <div class="sh-aboutUs-tabs-title sh-title-align-{{ section.settings.text_align }}">
+        {% if section.settings.title != blank %} <h2 class="sh-title">{{ section.settings.title }}</h2>{% endif %}
+        {% if section.settings.content != blank %} 
+          <div class="sh-tab-wise-imgtxt-desc sh-section-desc">{{ section.settings.content }}</div>
+        {% endif %}
+      </div> 
+    {% endif %}
+
+    <div class="sh-tab-content">
+      {% assign con_count = 0 %}
+      {% for block in section.blocks %}
+        {% if block.settings.title != blank %}
+          <div id="{{ block.settings.title | handleize }}" class="sh-inner-tabcontent{% if con_count > 0 %} sh-tab-content-hidden{% endif %}">
+            <div class="sh-main-tab-content sh-aboutUs-tabs-{{ section.settings.image_align }}-media">
+              <div class="sh-tab-image sh-tab-image-ratio-{{ section.settings.image_aspect_ratio }}">
+                {% if block.settings.image != blank %}
+                  <img
+                    src="{{ block.settings.image | image_url }}"
+                    width=""
+                    height=""
+                    loading="lazy"
+                    alt="{{ block.settings.title }}">
+                {% else %}
+                  <img
+                    src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Crect x='2' y='2' width='496' height='496' fill='%23D8D8D8' stroke='%23D8D8D8' stroke-width='4'/%3E%3C/g%3E%3C/svg%3E"
+                    width=""
+                    height=""
+                    loading="lazy"
+                    alt="tab image"
+                  >
+                {% endif %}
+              </div>
+              {% if block.settings.title != blank or block.settings.content != blank %}
+                <div class="sh-text-content sh-text-content-{{ section.settings.content_align }}">
+                  <div class="sh-ndiv">
+                    <h3>{{ block.settings.title }}</h3>
+                    {{ block.settings.content }}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+            {% assign con_count = con_count | plus: 1 %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="sh-Tab-heading">
+      {% assign count = 0 %}
+      {% for block in section.blocks %}
+        {% if block.settings.title != blank %}
+          <a class="sh-tablinks {% if count == 0 %}active{% endif %}" href="#{{ block.settings.title | handleize }}">
+            <span>{{ block.settings.title }}</span>
+          </a>
+          {% assign count = count | plus:1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div> 
+
+<script>
+  document.querySelector("#sh-{{ section.id }}").querySelectorAll(".sh-tablinks").forEach((tabLink) => {
+    tabLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      document.querySelector("#sh-{{ section.id }}").querySelectorAll(".sh-tablinks").forEach((link) => link.classList.remove("active"));
+      document.querySelector("#sh-{{ section.id }}").querySelectorAll(".sh-inner-tabcontent").forEach((content) => content.classList.add("sh-tab-content-hidden"));
+      this.classList.add("active");
+      const targetId = this.getAttribute("href").substring(1);
+      const targetContent = this.closest("#sh-{{ section.id }}").querySelector(".sh-tab-content").querySelector("#"+targetId);
+      if (targetContent) {
+        targetContent.classList.remove("sh-tab-content-hidden");
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "SH: Tab wise image text",
+  "tag": "section",
+  "class": "sh-section-hub-main",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_align",
+      "label": "Text alignment",
+      "default": "center"
+    },
+    {
+      "type": "paragraph",
+      "content": "Tab content"
+    },
+    {
+      "type":"select",
+      "id":"image_align",
+      "label": "Image position",
+      "options": [
+        { "label": "Left", "value": "left" },
+        { "label": "Right", "value": "right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Image height",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "adapt",
+          "label": "Auto"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text_alignment",
+      "id": "content_align",
+      "label": "Content alignment",
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Font size"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 5,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "content_font_size",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Content",
+      "default": 16
+    },
+    {
+      "type": "paragraph",
+      "content": "Tab content"
+    },
+    {
+      "type": "range",
+      "id": "tab_title_font_size",
+      "min": 5,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "tab_content_font_size",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Content",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "main_tab_title_font_size",
+      "min": 5,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Tab heading",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "Content color",
+      "default": "#121212"
+    },
+    {
+      "type": "paragraph",
+      "content": "Tab content"
+    },
+    {
+      "type": "color",
+      "id": "tab_title_color",
+      "label": "Heading color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "tab_content_color",
+      "label": "Content color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "tab_title_content_color",
+      "label": "Tab color",
+      "default": "#565656"
+    },
+    {
+      "type": "color",
+      "id": "active_tab_content_color",
+      "label": "Active tab color",
+      "default": "#000"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 40
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "mob_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mob_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "text",
+      "id": "section_max_width",
+      "label": "Width (in px)",
+      "default": "1140"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Content",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Our Quality"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SH: Tab wise image text",
+      "blocks": [
+        {
+          "type": "content",
+          "settings": {
+            "title": "Quality",
+            "image": "",
+            "content": "<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>"
+          }
+        },
+        {
+          "type": "content",
+           "settings": {
+            "title": "Process",
+            "image": "",
+            "content": "<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>"
+          }
+        },
+        {
+          "type": "content",
+           "settings": {
+            "title": "Sustainability",
+            "image": "",
+            "content": "<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["footer","header"]
+  }
+}
+{% endschema %}

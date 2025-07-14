@@ -1,0 +1,130 @@
+{% schema %}
+{
+    "name": "Product Tabs",
+    "max_blocks": 4,
+    "blocks": [
+        {
+            "type": "tab",
+            "name": "Tab",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Tab Title",
+                    "default": "Tab Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Tab Description",
+                    "default": "<p>Enter description here...</p>"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+        "name": "Product Tabs",
+        "category": "Product"
+        }
+    ]
+}
+{% endschema %}
+
+
+<div class="product-tabs">
+  <div class="page-width" id="tabs">
+    <div class="tab-buttons">
+    {% for block in section.blocks %}
+        <button class="tab-button" onclick="openTab(event, '{{ block.id }}')" data-tab-id="{{ block.id }}">{{ block.settings.title }}</button>
+    {% endfor %}
+  </div>
+
+  {% for block in section.blocks %}
+    <div id="{{ block.id }}" class="tab-content">
+        {{ block.settings.description | richtext }}
+    </div>
+  {% endfor %}
+  </div>
+</div>
+
+
+<style>
+    .product-tabs {
+        margin: 20px 0 30px 0;
+     
+    }
+    .tab-buttons {
+        border-top: 1px solid #EDEDED;
+        border-bottom: 1px solid #EDEDED;
+        /* padding : 15px 5px; */
+        overflow-x: overlay;
+        display: flex;
+        justify-content: space-between;
+      
+    }
+    .tab-button {
+        background-color : #0C482C;
+        color:white;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 20px 20px;
+        font-size: 16px;
+        font-weight:700;
+        flex-grow: 1;
+        text-align: center;
+        border:2px solid white;
+    }
+    .tab-button:hover {
+      text-decoration-line: underline;
+    }
+    .tab-button.active {
+        background: #e7e7e7;
+      color:black;
+        text-decoration-line: none;
+    }
+    .tab-content {
+        display: none;
+        padding: 15px;
+        border: 1px solid #EDEDED;
+    }
+</style>
+
+
+<script>
+    // Use the DOMContentLoaded event to ensure all DOM elements are fully loaded before script execution
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize the first tab if it exists
+        var firstButton = document.querySelector('.tab-button');
+        if (firstButton) {
+            openTab(null, firstButton.getAttribute('data-tab-id'));
+        }
+    });
+
+    function openTab(evt, tabId) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        tablinks = document.getElementsByClassName("tab-button");
+
+        // Hide all tab content by default
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Remove the active class from all tab buttons
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+
+        // Display the current tab content and add 'active' class to the clicked tab button
+        var contentToShow = document.getElementById(tabId);
+        if(contentToShow) {
+            contentToShow.style.display = "block";
+        }
+        var activeButton = document.querySelector('button[data-tab-id="' + tabId + '"]');
+        if(activeButton) {
+            activeButton.classList.add("active");
+        }
+    }
+</script>

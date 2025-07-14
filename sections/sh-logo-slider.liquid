@@ -1,0 +1,310 @@
+{%- capture sp_logo_slider_css -%}
+  <style>
+    #sp-{{ section.id }}.sp-logo-slider-wrapper {padding: {{section.settings.top_padding_desktop}}px 0 {{section.settings.bottom_padding_desktop}}px 0;background: {{section.settings.bg_color}}; overflow-x: hidden;}
+    #sp-{{ section.id }} .sp-page-width {max-width: 1140px;width: 100%;margin: 0 auto;padding: 0 20px;}
+    #sp-{{ section.id }} .sp-logo-slider-title {margin: 0 auto 30px;}
+    #sp-{{ section.id }} .sp-logo-slider-title h2 {font-size: {{ section.settings.title_font_size }}px;font-weight: 500;margin: 0 0 20px;color: {{section.settings.title_color}};}
+    #sp-{{ section.id }} .sp-logo-slider-desc p {margin: 0;font-size: {{ section.settings.content_font_size }}px;line-height: 1.4;color: {{section.settings.content_color}};}
+    #sp-{{ section.id }} .sp-logo-slider {display: flex;overflow: hidden;user-select: none;gap: 10px;-webkit-mask-image: linear-gradient(to right, #000000, #ffffff 20%, #ffffff 80%, #000000);mask-image: linear-gradient(to right, #000000, #ffffff 20%, #ffffff 80%, #000000);}
+    #sp-{{ section.id }} .sp-logo-slider__group {flex-shrink: 0;display: flex;align-items: center;justify-content: space-around;gap: 10px;width: max-content;flex-wrap: nowrap;animation: scroll-x {{ section.settings.speed }} linear infinite;}
+    #sp-{{ section.id }} .sp-logo-image {margin: 0 25px;width: 100%;height: 100%;max-height: 120px;object-fit: contain;}
+    
+    @keyframes scroll-x {
+      from { transform: translate3d(0, 0, 0); } 
+      to { transform: translate3d(-100%, 0, 0); }
+    }
+
+    @media only screen and (max-width: 767px) {
+      #sp-{{ section.id }}.sp-logo-slider-wrapper {padding: {{section.settings.top_padding_mobile}}px 0 {{section.settings.bottom_padding_mobile}}px 0;}
+      #sp-{{ section.id }} .sp-logo-slider-title h2 {margin: 0 0 10px;font-size: 26px;}
+      #sp-{{ section.id }} .sp-logo-slider-title p {font-size: 14px;}
+      #sp-{{ section.id }} .sp-logo-image {max-height: 80px;width: {{ section.settings.image_size_mob }}px !important;}
+    }
+  </style>
+{% endcapture %}
+{{- sp_logo_slider_css | strip_newlines -}}
+
+<div id="sp-{{ section.id }}" class="sp-logo-slider-wrapper">
+  <div class="sp-page-width">
+    {% if section.settings.title != blank or section.settings.content != blank %}
+      <div class="sp-logo-slider-title sp-title-align-{{ section.settings.text_align }}">
+        {% if section.settings.title != blank %}
+          <h2>{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.content != blank %}
+          <div class="sp-logo-slider-desc sp-section-desc">{{ section.settings.content }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+  
+  <div class="sp-logo-slider">
+    <div class="sp-logo-slider__group">
+      {% for block in section.blocks %}
+        <a href="{% if block.settings.logo_url != blank %}{{ block.settings.logo_url }}{% else %}javascript:void(0);{% endif %}">
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | image_url }}" class="sp-logo-image" alt="{{ block.settings.image.alt}}" loading="lazy" width="" height="" style="width: {{ section.settings.image_size }}px;">
+          {% else %}
+            <img src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Crect x='2' y='2' width='100' height='100' fill='%23D8D8D8' stroke='%23D8D8D8' stroke-width='4'/%3E%3C/g%3E%3C/svg%3E" width="" height="" loading="lazy" class="sp-logo-image" style="width: {{ section.settings.image_size }}px;" alt="Logo slider">
+          {% endif %}
+        </a>
+      {% endfor %}
+    </div>
+    <div class="sp-logo-slider__group" aria-hidden="true">
+      {% for block in section.blocks %}
+        <a href="{% if block.settings.logo_url != blank %}{{ block.settings.logo_url }}{% else %}javascript:void(0);{% endif %}">
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | image_url }}" class="sp-logo-image" alt="{{ block.settings.image.alt}}" loading="lazy" width="" height="" style="width: {{ section.settings.image_size }}px;" >
+          {% else %}
+            <img src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Crect x='2' y='2' width='100' height='100' fill='%23D8D8D8' stroke='%23D8D8D8' stroke-width='4'/%3E%3C/g%3E%3C/svg%3E" width="" height="" loading="lazy" class="sp-logo-image" style="width: {{ section.settings.image_size }}px;" alt="Logo slider" >
+          {% endif %}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.querySelector("#sp-{{ section.id }}").querySelector(".sp-logo-slider");
+    const sliderGroup = document.querySelector("#sp-{{ section.id }}").querySelector(".sp-logo-slider__group");
+
+    if (slider && sliderGroup) {
+      const clone = sliderGroup.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      slider.appendChild(clone);
+
+      slider.style.display = "flex";
+      slider.style.width = "max-content";
+
+      let scrollAmount = 0;
+      const scrollSpeed = 0; // Adjust speed if needed
+
+      function autoScroll() {
+        if (scrollAmount >= sliderGroup.offsetWidth) {
+          scrollAmount = 0;
+          slider.scrollLeft = 0;
+        } else {
+          scrollAmount += scrollSpeed;
+          slider.scrollLeft = scrollAmount;
+        }
+        requestAnimationFrame(autoScroll);
+      }
+      autoScroll();
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "SH: Logo slider",
+  "tag": "section",
+  "class": "sh-section-hub-main",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "We recommend adding at least 5 logos for a proper preview"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Shop By Brand"
+    },
+    {
+      "type": "richtext",
+      "id":"content",
+      "label": "Content",
+      "default": "<p>Explore the latest trends and timeless classics from your favorite fashion houses</p>"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_align",
+      "label": "Text alignment",
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "image_size",
+      "min": 10,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Logo size (Desktop)",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "image_size_mob",
+      "min": 50,
+      "max": 150,
+      "step": 2,
+      "unit": "px",
+      "label": "Logo size (Mobile)",
+      "default": 80
+    },
+    {
+      "type":"select",
+      "id":"speed",
+      "label": "Speed",
+      "options": [
+        {
+          "value": "8s",
+          "label": "Fast"
+        },
+        {
+          "value": "14s",
+          "label": "Medium"
+        },
+        {
+          "value": "20s",
+          "label": "Slow"
+        }
+      ],
+      "default": "20s",
+      "info": "The speed will depend on how many logos are added"
+    },
+    {
+      "type": "header",
+      "content": "Font size"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 5,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "content_font_size",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Content",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Backgorund color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "Content color",
+      "default": "#000"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "top_padding_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "bottom_padding_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 20
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "top_padding_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "bottom_padding_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 20
+    },
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo image"
+        },
+        {
+          "type": "url",
+          "id": "logo_url",
+          "label": "Link",
+          "default": "/"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SH: Logo slider",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["footer","header"]
+  }
+}
+{% endschema %}

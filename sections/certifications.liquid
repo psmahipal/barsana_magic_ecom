@@ -1,0 +1,119 @@
+<section class="certifications-section">
+  <div class="page-width">
+    <!-- Title -->
+    <h2>{{ section.settings.title }}</h2>
+
+    <!-- Slider Wrapper -->
+    <div 
+      class="certifications-section__slider">
+      <div class="certifications-section__wrapper" 
+           style="--certifications-per-row-mobile: {{ section.settings.images_per_row_mobile }}">
+        {% for block in section.blocks %}
+          <div class="certifications-section__item">
+            <img src="{{ block.settings.image | image_url }}" alt="{{ block.settings.alt_text | escape }}" />
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Certifications Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Certifications"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Background Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "range",
+      "id": "images_per_row_mobile",
+      "label": "Images Per Row on Mobile",
+      "min": 1,
+      "max": 4,
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "certification_image",
+      "name": "Certification Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text",
+          "default": "Certification Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Certifications Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .certifications-section {
+  padding: 0 0 50px 0;
+  text-align: center;
+}
+
+.certifications-section__title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: var(--color-foreground);
+}
+
+.certifications-section__slider {
+  overflow-x: hidden;
+}
+
+.certifications-section__wrapper {
+  margin-top: 10px;
+    margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px; /* Add spacing between items */
+}
+
+.certifications-section__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.certifications-section__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+  .certifications-section__wrapper {
+    grid-template-columns: repeat(var(--certifications-per-row-mobile), 1fr);
+  }
+}
+
+</style>

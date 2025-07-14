@@ -1,0 +1,129 @@
+{% comment %}
+  Custom Collection Section with Quantity Selector and AJAX Cart Drawer
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "Custom Collection Section",
+  "tag": "section",
+  "class": "custom-feature-collection",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Feature Collection",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="custom-feature-collection" style="padding: 20px;">
+  <h2 class="title inline-richtext h2 scroll-trigger animate--slide-in">Our Category</h2>
+  <div class="collection-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+    {% if section.settings.collection %}
+      {% assign products = section.settings.collection.products %}
+      {% for product in products limit: section.settings.products_to_show %}
+      <div class="product-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; width: 250px; text-align: center;">
+        
+        <!-- Product Image -->
+        <a href="{{ product.url }}" style="text-decoration: none; color: inherit;">
+          <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" style="width: 100%; border-radius: 8px;">
+        </a>
+
+        <!-- Product Title -->
+        <h3 style="font-size: 18px; margin: 10px 0;">{{ product.title }}</h3>
+
+        <!-- Product Price -->
+        <div class="product-price" style="font-size: 16px; margin-bottom: 10px;">
+          <span style="color: #007e3a; font-weight: bold;">{{ product.price | money }}</span>
+          {% if product.compare_at_price > product.price %}
+            <span style="text-decoration: line-through; color: #999; margin-left: 5px;">
+              {{ product.compare_at_price | money }}
+            </span>
+          {% endif %}
+        </div>
+
+        <!-- Quantity Selector and Add to Cart -->
+        <form data-product-id="{{ product.variants.first.id }}" class="add-to-cart-form">
+          
+          <input type="number" id="quantity-{{ product.id }}" name="quantity" value="1" min="1" style="width: 60px; padding: 5px; margin-bottom: 10px;">
+
+          <!-- Add to Cart Button -->
+          <button type="button" class="add-to-cart-btn" style="background-color: #007e3a; color: #fff; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+            Add to cart
+          </button>
+        </form>
+      </div>
+      {% endfor %}
+    {% else %}
+      <p style="text-align: center; font-size: 16px;">Please select a collection in the section settings.</p>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+.custom-feature-collection .product-card button:hover {
+  background-color: #005f2b;
+}
+
+.custom-feature-collection .product-card {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.custom-feature-collection .product-card:hover {
+  transform: translateY(-5px);
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const addToCartForms = document.querySelectorAll('.add-to-cart-form');
+
+  addToCartForms.forEach(form => {
+    form.querySelector('.add-to-cart-btn').addEventListener('click', function(event) {
+      event.preventDefault();
+      
+      const productId = form.dataset.productId;
+      const quantity = form.querySelector('input[name="quantity"]').value;
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          id: productId,
+          quantity: quantity
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Open the cart drawer if it exists in the theme
+        if (window.Shopify && Shopify.theme && Shopify.theme.cart_drawer) {
+          document.querySelector('cart-drawer').dispatchEvent(new Event('cart:refresh'));
+        } else {
+          location.reload(); // Fallback: reload the page if no cart drawer exists
+        }
+      })
+      .catch(error => console.error('Error adding to cart:', error));
+    });
+  });
+});
+</script>
