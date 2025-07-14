@@ -1,0 +1,10 @@
+# Shopify specific
+.env
+node_modules/
+dist/
+build/
+.DS_Store
+*.log
+
+# OS-specific
+Thumbs.db
