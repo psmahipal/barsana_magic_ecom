@@ -33,6 +33,7 @@
         },
         "slide_4683wc": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image_link": "https://www.barsanamagic.com/products/combo-pack-of-5-organic-wild-forest-4-natural-honeys-neem-jamun-acacia-van-tulsi",
             "heading": "",
@@ -51,6 +52,7 @@
         },
         "slide_Trq9qn": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image_link": "https://www.barsanamagic.com/collections/spread",
             "heading": "",
@@ -69,6 +71,7 @@
         },
         "slide_WjLQtK": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image_link": "https://www.barsanamagic.com/products/organic-cow-ghee-organic-bilona-cow-ghee",
             "heading": "",
@@ -176,6 +179,7 @@
         },
         "small_image_jVA3CR": {
           "type": "small_image",
+          "disabled": true,
           "settings": {
             "small_image_url": "shopify://collections/100-natural-and-organic-honey",
             "small_image_text": "Natural & Organic Honey"
@@ -191,6 +195,7 @@
         },
         "small_image_PTk8Lf": {
           "type": "small_image",
+          "disabled": true,
           "settings": {
             "small_image_url": "shopify://products/organic-cow-ghee-500ml",
             "small_image_text": ""
@@ -198,6 +203,7 @@
         },
         "small_image_CejREa": {
           "type": "small_image",
+          "disabled": true,
           "settings": {
             "small_image_url": "shopify://collections/skimmed-milk",
             "small_image_text": ""
@@ -205,6 +211,7 @@
         },
         "small_image_Dd9WU3": {
           "type": "small_image",
+          "disabled": true,
           "settings": {
             "small_image_url": "shopify://collections/spread",
             "small_image_text": ""
@@ -212,6 +219,7 @@
         },
         "small_image_ELLCYj": {
           "type": "small_image",
+          "disabled": true,
           "settings": {
             "small_image_url": "shopify://products/summer-sale899",
             "small_image_text": ""
@@ -543,6 +551,7 @@
     },
     "image_banner_9inNHe": {
       "type": "image-banner",
+      "disabled": true,
       "custom_css": [
         ".banner__media media {height: 500px;}"
       ],
