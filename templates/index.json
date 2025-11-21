@@ -1,1 +1,775 @@
-{"sections":{"slideshow_UKEAgf":{"type":"slideshow","blocks":{"slide_EjnFhC":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/2_badri_masala_spread_1.jpg","image_link":"https:\/\/www.barsanamagic.com\/products\/organic-a2-badri-cow-ghee-pack-of-2","heading":"","heading_size":"h1","subheading":"","button_label":"","link":"","button_style_secondary":false,"box_align":"middle-center","show_text_box":false,"text_alignment":"center","image_overlay_opacity":0,"color_scheme":"scheme-1","text_alignment_mobile":"center"}},"slide_4683wc":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/banner.jpg","image_link":"https:\/\/www.barsanamagic.com\/products\/combo-pack-of-5-organic-wild-forest-4-natural-honeys-neem-jamun-acacia-van-tulsi","heading":"","heading_size":"h2","subheading":"","button_label":"","link":"","button_style_secondary":false,"box_align":"middle-center","show_text_box":false,"text_alignment":"center","image_overlay_opacity":0,"color_scheme":"scheme-1","text_alignment_mobile":"center"}},"slide_Trq9qn":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/banner_spread_1_and_1_free_3.jpg","image_link":"https:\/\/www.barsanamagic.com\/collections\/spread","heading":"","heading_size":"h1","subheading":"","button_label":"","link":"","button_style_secondary":false,"box_align":"top-left","show_text_box":false,"text_alignment":"center","image_overlay_opacity":0,"color_scheme":"scheme-1","text_alignment_mobile":"center"}},"slide_WjLQtK":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/organic_and_bilona_1.png","image_link":"https:\/\/www.barsanamagic.com\/products\/organic-cow-ghee-organic-bilona-cow-ghee","heading":"","heading_size":"h2","subheading":"","button_label":"","link":"","button_style_secondary":true,"box_align":"middle-center","show_text_box":false,"text_alignment":"right","image_overlay_opacity":0,"color_scheme":"scheme-26829669-94c1-4f11-9c07-f046b97d825a","text_alignment_mobile":"right"}}},"block_order":["slide_EjnFhC","slide_4683wc","slide_Trq9qn","slide_WjLQtK"],"custom_css":["slideshow-component .slideshow__controls {justify-content: space-between; position: absolute; top: 50%; z-index: 1; left: 50%; width: 100%; transform: translate(-50%, -50%); border: unset;}","slideshow-component .slideshow__controls .slider-counter,slideshow-component .slideshow__controls .slideshow__autoplay {display: none;}","slideshow-component .slideshow__controls .slider-button {width: 30px; height: 30px; background-color: #d3d3d3; border-radius: 50%;}","slideshow-component .slideshow__controls .slider-button .icon {height: 1.6rem;}"],"settings":{"layout":"full_bleed","slide_height":"adapt_image","slider_visual":"dots","auto_rotate":true,"toggle_play":true,"change_slides_speed":5,"image_behavior":"none","show_text_below":false,"accessibility_info":""}},"marque_slider_dQxJLW":{"type":"marque-slider","blocks":{"text_kj7kax":{"type":"text","settings":{"new_text":"Get 2% Off on all prepaid orders.","icon":"star"}},"text_Th3BzT":{"type":"text","settings":{"new_text":"Free Shipping","icon":"truck"}},"text_daJU33":{"type":"text","settings":{"new_text":"COD Available","icon":"price_tag"}}},"block_order":["text_kj7kax","text_Th3BzT","text_daJU33"],"settings":{"colorBackground":"#0c482c","colorText":"#ffffff","link":"","marquee_height":46,"font_size":24}},"summer_sale_offers_FzRdU4":{"type":"summer-sale-offers","disabled":true,"settings":{"mainHeading":"Summer Sale","saleHeading":"Summer Sale &#8377; 899","image_link":"shopify:\/\/products\/summer-sale899","SecondsaleHeading":"Summer Sale &#8377; 1499","second_image_url":"shopify:\/\/products\/summer-sale1499","ThirdSecondsaleHeading":"Summer Sale &#8377; 1899","third_image_url":"shopify:\/\/products\/sumersale1899","FourSecondsaleHeading":"Summer Sale &#8377; 2699","fourth_image_url":"shopify:\/\/products\/sumersale2699"}},"custom_collection_grid_fXEhtN":{"type":"custom-collection-grid","blocks":{"large_image_GdQ9Y4":{"type":"large_image","settings":{"large_image":"shopify:\/\/shop_images\/bilona-mobile_size.jpg","large_image_mobile":"shopify:\/\/shop_images\/MOBILE-desktop_size.jpg","large_image_url":"https:\/\/www.barsanamagic.com\/collections\/organic-ghee","large_image_text":""}},"small_image_jVA3CR":{"type":"small_image","settings":{"small_image":"shopify:\/\/shop_images\/honey_PACK_OF_5.jpg","small_image_url":"shopify:\/\/collections\/100-natural-and-organic-honey","small_image_text":"Natural & Organic Honey"}},"small_image_GBgTaW":{"type":"small_image","settings":{"small_image":"shopify:\/\/shop_images\/HONEY_899_1f3350d8-2b32-41aa-abb5-ea82ef3a3d44.jpg","small_image_url":"shopify:\/\/products\/organic-wild-forest-honey-300g","small_image_text":""}},"small_image_PTk8Lf":{"type":"small_image","settings":{"small_image":"shopify:\/\/shop_images\/a2_badri_free_spread.jpg","small_image_url":"shopify:\/\/products\/organic-cow-ghee-500ml","small_image_text":""}},"small_image_CejREa":{"type":"small_image","settings":{"small_image":"shopify:\/\/shop_images\/Untitled-1.jpg","small_image_url":"shopify:\/\/collections\/skimmed-milk","small_image_text":""}},"small_image_Dd9WU3":{"type":"small_image","settings":{"small_image":"shopify:\/\/shop_images\/get_1-spread.jpg","small_image_url":"shopify:\/\/collections\/spread","small_image_text":""}},"small_image_ELLCYj":{"type":"small_image","settings":{"small_image":"shopify:\/\/shop_images\/homepage.jpg","small_image_url":"shopify:\/\/products\/summer-sale899","small_image_text":""}}},"block_order":["large_image_GdQ9Y4","small_image_jVA3CR","small_image_GBgTaW","small_image_PTk8Lf","small_image_CejREa","small_image_Dd9WU3","small_image_ELLCYj"],"custom_css":["h2 {color: #0c482c; font-weight: 700;}"],"settings":{}},"sh_image_gallery_MfAH8q":{"type":"sh-image-gallery","blocks":{"image_Y6r9WR":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/bilona-ayurved.jpg","layout":"two-half","title":"Organic Bilona Cow Ghee","content":"","link":"shopify:\/\/products\/organic-bilona-cow-ghee-500ml","content_color":"#ffffff"}},"image_fhKcWW":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/collection_honey.jpg","layout":"two-half","title":"Natural & Organic Honey","content":"","link":"shopify:\/\/collections\/100-natural-and-organic-honey","content_color":"#ffffff"}},"image_NxPcPR":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/wild_forest_13b97176-1046-4719-a2d9-2573446e04c3.jpg","layout":"one-quarter","title":"Organic Wild Forest Honey","content":"","link":"shopify:\/\/products\/organic-wild-forest-honey-300g-holi-offer","content_color":"#ffffff"}},"image_qL8MmL":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/organic_cow_ghee.jpg","layout":"one-quarter","title":"Organic Cow Ghee","content":"","link":"shopify:\/\/products\/organic-cow-ghee-500ml","content_color":"#ffffff"}},"image_GGJwPt":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/organicCowMilk.png","layout":"two-half","title":"Organic Cow Milk","content":"","link":"shopify:\/\/collections\/skimmed-milk","content_color":"#fffcec"}},"image_g7gaED":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/5_18b22cc7-2e17-4520-8f5d-3357e5a1506e.png","layout":"two-half","title":"Organic Milk Fat Spread","content":"","link":"shopify:\/\/collections\/spread","content_color":"#ffffff"}},"image_eYzAL9":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/honey_range_899.jpg","layout":"two-half","title":"Summer Sale @899","content":"","link":"shopify:\/\/products\/summer-sale899","content_color":"#f5f5f5"}}},"block_order":["image_Y6r9WR","image_fhKcWW","image_NxPcPR","image_qL8MmL","image_GGJwPt","image_g7gaED","image_eYzAL9"],"disabled":true,"name":"SH: Image gallery","settings":{"title":"","content":"<h1><strong>Our Category<\/strong><\/h1>","content_align":"center","gap":8,"border":5,"title_font_size":21,"content_font_size":16,"tile_title_font_size":24,"tile_content_font_size":14,"bg_color":"#ffffff","title_color":"#0c482c","content_color":"#121212","tiles_bg_color":"linear-gradient(359deg, rgba(0, 94, 54, 1) 10%, rgba(20, 30, 53, 0) 59%)","padding_top":40,"padding_bottom":40,"mob_padding_top":30,"mob_padding_bottom":30,"section_max_width":"1300"}},"173944622510a29f30":{"type":"apps","settings":{"include_margins":true}},"feature_section_template_QbCW6t":{"type":"feature-section-template","disabled":true,"settings":{"collection":"organic-ghee","products_to_show":4}},"company_offers_banner_MVKX4T":{"type":"company-offers-banner","disabled":true,"settings":{}},"featured_collection_zUYH7t":{"type":"featured-collection","custom_css":[".card__information {text-align: center;}",".price__container {text-align: center;}","h2 {color: #0c482c; font-weight: 700;}"],"settings":{"title":"Best Sellers","heading_size":"h2","description":"","show_description":true,"description_style":"subtitle","collection":"best-seller","products_to_show":4,"columns_desktop":4,"full_width":false,"show_view_all":true,"view_all_style":"solid","enable_desktop_slider":true,"color_scheme":"scheme-1","image_ratio":"adapt","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"standard","columns_mobile":"1","swipe_on_mobile":true,"padding_top":0,"padding_bottom":36}},"certifications_RVe3Gf":{"type":"certifications","blocks":{"certification_image_NgzAgT":{"type":"certification_image","settings":{"image":"shopify:\/\/shop_images\/canada_organic.png","alt_text":"Certification Image"}},"certification_image_w8P6Jm":{"type":"certification_image","settings":{"image":"shopify:\/\/shop_images\/USOCA.png","alt_text":"Certification Image"}},"certification_image_ihaqVD":{"type":"certification_image","settings":{"image":"shopify:\/\/shop_images\/agrocert.png","alt_text":"Certification Image"}},"certification_image_9LJjCN":{"type":"certification_image","settings":{"image":"shopify:\/\/shop_images\/india_organic_png.png","alt_text":"Certification Image"}},"certification_image_Lag7MF":{"type":"certification_image","settings":{"image":"shopify:\/\/shop_images\/fssai.png","alt_text":"Certification Image"}},"certification_image_fzJgcF":{"type":"certification_image","settings":{"image":"shopify:\/\/shop_images\/usda.png","alt_text":"Certification Image"}},"certification_image_8WQKDA":{"type":"certification_image","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/jaivik_bharat.png","alt_text":"Certification Image"}},"certification_image_b4zUag":{"type":"certification_image","settings":{"image":"shopify:\/\/shop_images\/onecert.png","alt_text":"Certification Image"}}},"block_order":["certification_image_NgzAgT","certification_image_w8P6Jm","certification_image_ihaqVD","certification_image_9LJjCN","certification_image_Lag7MF","certification_image_fzJgcF","certification_image_8WQKDA","certification_image_b4zUag"],"disabled":true,"custom_css":["h2 {color: #0c482c; font-size: 30px; font-weight: 700;}"],"settings":{"title":"Certifications","color_scheme":"","images_per_row_mobile":4}},"video_with_text_JaahgV":{"type":"video-with-text","disabled":true,"settings":{"video_url":"https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ","background_image":"shopify:\/\/shop_images\/water-color-5.png","heading":"Check out our amazing video!","description":"This is an engaging description for the video section. It's a perfect spot to explain the video content.","full_width":false,"padding_top":40,"padding_bottom":40}},"webelieve_YMcWJi":{"type":"webelieve","disabled":true,"settings":{"title":"We Believe In","color_scheme_background":"#fffcec","color_scheme_title":"#005e36","image_title_1":"AUTHENTICITY","image_title_2":"TRADITION","image_title_3":"HONESTY","image_title_4":"PURPOSE"}},"image_with_text_7ReLfL":{"type":"image-with-text","blocks":{"heading_tHAeYg":{"type":"heading","settings":{"heading":"Who Are We?","heading_size":"h1"}},"text_BqRFRV":{"type":"text","settings":{"text":"<p>Barsana is a small town (Tehsil) located in dist Mathura, Uttar Pradesh. This region is also known as Braj Bhumi. The place is birth place of goddess Radharani and consort of Lord Krishna. In this region people domesticate animals especially cows religiously. They raise the animal in worship of Lord Krishna. Lord Krishna’s love for cows and 'dairy product' is well known. Sanjeevani Agrofoods Limited is doing project with the farmer of Braj region in Organic Farming as well as livestock organic farming.In this project farmers are being trained for Organic farming practices whereas the domestication of animal is also part of the project. These Projects are certified Organic Agriculture projects under the norms of NPOP and USADA NOP Organic standards.<\/p>","text_style":"body"}}},"block_order":["heading_tHAeYg","text_BqRFRV"],"disabled":true,"settings":{"height":"adapt","desktop_image_width":"small","layout":"image_first","desktop_content_position":"top","desktop_content_alignment":"left","content_layout":"no-overlap","section_color_scheme":"","color_scheme":"scheme-5","image_behavior":"none","mobile_content_alignment":"left","padding_top":16,"padding_bottom":16}},"image_banner_9inNHe":{"type":"image-banner","custom_css":[".banner__media media {height: 500px;}"],"settings":{"image":"shopify:\/\/shop_images\/summer_sale_300px_1.png","image_url":"shopify:\/\/products\/summer-sale899","image_overlay_opacity":0,"image_height":"adapt","desktop_content_position":"middle-center","show_text_box":false,"desktop_content_alignment":"center","color_scheme":"","image_behavior":"none","mobile_content_alignment":"center","stack_images_on_mobile":true,"show_text_below":true}},"whybarsana_UDXMJj":{"type":"whybarsana","custom_css":["h2 {color: #0c482c; font-weight: 700;}"],"settings":{"title":"Why Barsana ?","color_scheme_background":"#ffffff","color_scheme_title":"#000000","image_1":"shopify:\/\/shop_images\/farmer-01.png","image_title_1":"5000+ Farmers","image_2":"shopify:\/\/shop_images\/2_3cb3a641-cc3c-4900-8e6d-c24cbf1a08cd.png","image_title_2":"Traditional Techniques","image_3":"shopify:\/\/shop_images\/3_9a6d123e-54b1-48a5-9b88-2a53ae37a330.png","image_title_3":"Indian breed cow","image_4":"shopify:\/\/shop_images\/4_d62481fc-7cde-4ac1-91bf-38ccbc46d3f9.png","image_title_4":"Organic Certified","image_5":"shopify:\/\/shop_images\/5_50b490bc-d0a3-4f19-81cb-33e53605c793.png","image_title_5":"No Added Preservatives"}},"image_banner_W6Q9Em":{"type":"image-banner","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/far-1-min.png","image_url":"","image_overlay_opacity":0,"image_height":"adapt","desktop_content_position":"middle-center","show_text_box":false,"desktop_content_alignment":"center","color_scheme":"","image_behavior":"none","mobile_content_alignment":"center","stack_images_on_mobile":false,"show_text_below":true}},"image_with_text_KpFALN":{"type":"image-with-text","blocks":{"heading_ymM4Ga":{"type":"heading","settings":{"heading":"Empowering 5000+ Farmers,Cultivating 9800 Acres of FertileLand & Delivering Worldwide","heading_size":"h2"}},"text_3cRX8F":{"type":"text","settings":{"text":"<p>We proudly support over 5000 farmers, nurturing 9800 acres of organic farmland under NPOP (National Programme for Organic Production) and NOP (National Organic Program) standards and producing 26,300+ MTPA of premium milk. With a commitment to sustainable farming and fair in comes, we bring farm-fresh goodness to homes across India and 36 countries worldwide. Together, we're building a healthier, greener future for the upcoming generations.<\/p>","text_style":"body"}},"button_aWH3Jz":{"type":"button","settings":{"button_label":"Read More","button_link":"shopify:\/\/pages\/milestone","button_style_secondary":false}}},"block_order":["heading_ymM4Ga","text_3cRX8F","button_aWH3Jz"],"settings":{"image":"shopify:\/\/shop_images\/farmer_1.png","height":"adapt","desktop_image_width":"small","layout":"image_first","desktop_content_position":"middle","desktop_content_alignment":"left","content_layout":"no-overlap","section_color_scheme":"scheme-5","color_scheme":"scheme-5","image_behavior":"ambient","mobile_content_alignment":"left","padding_top":36,"padding_bottom":12}},"image_with_text_nknmHk":{"type":"image-with-text","blocks":{"heading_ithtUa":{"type":"heading","settings":{"heading":"Indian Breed Cow Milk","heading_size":"h2"}},"text_E73LNf":{"type":"text","settings":{"text":"<p>We source our milk from <strong>Indian breed cows<\/strong>, untouched by human hands and processed using fully automated machines. This ensures a clean, hygienic, and natural process from farm to packaging raised under close supervision by our farmers on organic farms. These cows, including breeds like Badri, Gir, and Sahiwal cows, feed on natural fodder, providing A2 milk known for its digestibility and nutritional benefits. Rich in protein, particularly in whey and casein, It is a good choice for growing children, pregnant mothers, and the elderly. Our organic cow milk is packaged in 6 layers using UHT technology, ensuring that the milk remains free from pesticides, synthetic hormones, and harmful additives. It tastes farm-fresh and delivered directly to your doorstep.<\/p>","text_style":"body"}}},"block_order":["heading_ithtUa","text_E73LNf"],"custom_css":[".section-template--18815213142272__image_with_text_nknmHk-padding {background: #005e36;}","h2 {color: #0c482c; font-weight: 700;}"],"settings":{"image":"shopify:\/\/shop_images\/vlcsnap-2024-11-28-13h11m33s485.png","height":"adapt","desktop_image_width":"small","layout":"text_first","desktop_content_position":"top","desktop_content_alignment":"left","content_layout":"no-overlap","section_color_scheme":"scheme-1","color_scheme":"scheme-1","image_behavior":"none","mobile_content_alignment":"left","padding_top":16,"padding_bottom":16}},"our_strength_NAFBri":{"type":"our-strength","custom_css":["h2 {color: #0c482c; font-weight: 700;}"],"settings":{"heading":"Our Strength","description":"Showcasing the core values and quality behind our products."}},"custom_liquid_8cjVdh":{"type":"custom-liquid","disabled":true,"settings":{"custom_liquid":"<h3>Our Strength<\/h3>","color_scheme":"","padding_top":12,"padding_bottom":12}},"custom_liquid_8iKcBn":{"type":"custom-liquid","disabled":true,"settings":{"custom_liquid":"<h3>Our Philosophy<\/h3>","color_scheme":"","padding_top":12,"padding_bottom":12}},"featured_blog_eA4HfJ":{"type":"featured-blog","custom_css":["h2 {color: #0c482c; font-size: 20px; font-weight: 700;}","h3 a {font-size: 20px; font-weight: 700; color: #0c482c;}","img {max-width: 100%; height: auto;}"],"settings":{"heading":"Recent Blogs","heading_size":"h3","blog":"blogs","post_limit":3,"columns_desktop":3,"color_scheme":"scheme-3c8557ec-7e18-478e-b149-e26fbd3ec93a","show_image":true,"show_date":true,"show_author":true,"show_view_all":true,"padding_top":0,"padding_bottom":8}},"17444582503e7418fe":{"type":"apps","disabled":true,"settings":{"include_margins":true}}},"order":["slideshow_UKEAgf","marque_slider_dQxJLW","summer_sale_offers_FzRdU4","custom_collection_grid_fXEhtN","sh_image_gallery_MfAH8q","173944622510a29f30","feature_section_template_QbCW6t","company_offers_banner_MVKX4T","featured_collection_zUYH7t","certifications_RVe3Gf","video_with_text_JaahgV","webelieve_YMcWJi","image_with_text_7ReLfL","image_banner_9inNHe","whybarsana_UDXMJj","image_banner_W6Q9Em","image_with_text_KpFALN","image_with_text_nknmHk","our_strength_NAFBri","custom_liquid_8cjVdh","custom_liquid_8iKcBn","featured_blog_eA4HfJ","17444582503e7418fe"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_UKEAgf": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_EjnFhC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/coffee_range_1.jpg",
+            "image_link": "https://www.barsanamagic.com/products/organic-a2-badri-cow-ghee-pack-of-2",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_4683wc": {
+          "type": "slide",
+          "settings": {
+            "image_link": "https://www.barsanamagic.com/products/combo-pack-of-5-organic-wild-forest-4-natural-honeys-neem-jamun-acacia-van-tulsi",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_Trq9qn": {
+          "type": "slide",
+          "settings": {
+            "image_link": "https://www.barsanamagic.com/collections/spread",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "top-left",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_WjLQtK": {
+          "type": "slide",
+          "settings": {
+            "image_link": "https://www.barsanamagic.com/products/organic-cow-ghee-organic-bilona-cow-ghee",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "right",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-26829669-94c1-4f11-9c07-f046b97d825a",
+            "text_alignment_mobile": "right"
+          }
+        }
+      },
+      "block_order": [
+        "slide_EjnFhC",
+        "slide_4683wc",
+        "slide_Trq9qn",
+        "slide_WjLQtK"
+      ],
+      "custom_css": [
+        "slideshow-component .slideshow__controls {justify-content: space-between; position: absolute; top: 50%; z-index: 1; left: 50%; width: 100%; transform: translate(-50%, -50%); border: unset;}",
+        "slideshow-component .slideshow__controls .slider-counter,slideshow-component .slideshow__controls .slideshow__autoplay {display: none;}",
+        "slideshow-component .slideshow__controls .slider-button {width: 30px; height: 30px; background-color: #d3d3d3; border-radius: 50%;}",
+        "slideshow-component .slideshow__controls .slider-button .icon {height: 1.6rem;}"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "toggle_play": true,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": ""
+      }
+    },
+    "marque_slider_dQxJLW": {
+      "type": "marque-slider",
+      "blocks": {
+        "text_kj7kax": {
+          "type": "text",
+          "settings": {
+            "new_text": "Get 2% Off on all prepaid orders.",
+            "icon": "star"
+          }
+        },
+        "text_Th3BzT": {
+          "type": "text",
+          "settings": {
+            "new_text": "Free Shipping",
+            "icon": "truck"
+          }
+        },
+        "text_daJU33": {
+          "type": "text",
+          "settings": {
+            "new_text": "COD Available",
+            "icon": "price_tag"
+          }
+        }
+      },
+      "block_order": [
+        "text_kj7kax",
+        "text_Th3BzT",
+        "text_daJU33"
+      ],
+      "settings": {
+        "colorBackground": "#0c482c",
+        "colorText": "#ffffff",
+        "link": "",
+        "marquee_height": 46,
+        "font_size": 24
+      }
+    },
+    "summer_sale_offers_FzRdU4": {
+      "type": "summer-sale-offers",
+      "disabled": true,
+      "settings": {
+        "mainHeading": "Summer Sale",
+        "saleHeading": "Summer Sale &#8377; 899",
+        "image_link": "shopify://products/summer-sale899",
+        "SecondsaleHeading": "Summer Sale &#8377; 1499",
+        "second_image_url": "shopify://products/summer-sale1499",
+        "ThirdSecondsaleHeading": "Summer Sale &#8377; 1899",
+        "third_image_url": "shopify://products/sumersale1899",
+        "FourSecondsaleHeading": "Summer Sale &#8377; 2699",
+        "fourth_image_url": "shopify://products/sumersale2699"
+      }
+    },
+    "custom_collection_grid_fXEhtN": {
+      "type": "custom-collection-grid",
+      "blocks": {
+        "large_image_GdQ9Y4": {
+          "type": "large_image",
+          "settings": {
+            "large_image": "shopify://shop_images/bilona-mobile_size.jpg",
+            "large_image_url": "https://www.barsanamagic.com/collections/organic-ghee",
+            "large_image_text": ""
+          }
+        },
+        "small_image_jVA3CR": {
+          "type": "small_image",
+          "settings": {
+            "small_image_url": "shopify://collections/100-natural-and-organic-honey",
+            "small_image_text": "Natural & Organic Honey"
+          }
+        },
+        "small_image_GBgTaW": {
+          "type": "small_image",
+          "settings": {
+            "small_image": "shopify://shop_images/HONEY_899_1f3350d8-2b32-41aa-abb5-ea82ef3a3d44.jpg",
+            "small_image_url": "shopify://products/organic-wild-forest-honey-300g",
+            "small_image_text": ""
+          }
+        },
+        "small_image_PTk8Lf": {
+          "type": "small_image",
+          "settings": {
+            "small_image_url": "shopify://products/organic-cow-ghee-500ml",
+            "small_image_text": ""
+          }
+        },
+        "small_image_CejREa": {
+          "type": "small_image",
+          "settings": {
+            "small_image_url": "shopify://collections/skimmed-milk",
+            "small_image_text": ""
+          }
+        },
+        "small_image_Dd9WU3": {
+          "type": "small_image",
+          "settings": {
+            "small_image_url": "shopify://collections/spread",
+            "small_image_text": ""
+          }
+        },
+        "small_image_ELLCYj": {
+          "type": "small_image",
+          "settings": {
+            "small_image_url": "shopify://products/summer-sale899",
+            "small_image_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "large_image_GdQ9Y4",
+        "small_image_jVA3CR",
+        "small_image_GBgTaW",
+        "small_image_PTk8Lf",
+        "small_image_CejREa",
+        "small_image_Dd9WU3",
+        "small_image_ELLCYj"
+      ],
+      "custom_css": [
+        "h2 {color: #0c482c; font-weight: 700;}"
+      ],
+      "settings": {}
+    },
+    "sh_image_gallery_MfAH8q": {
+      "type": "sh-image-gallery",
+      "blocks": {
+        "image_Y6r9WR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/bilona-ayurved.jpg",
+            "layout": "two-half",
+            "title": "Organic Bilona Cow Ghee",
+            "content": "",
+            "link": "shopify://products/organic-bilona-cow-ghee-500ml",
+            "content_color": "#ffffff"
+          }
+        },
+        "image_fhKcWW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/collection_honey.jpg",
+            "layout": "two-half",
+            "title": "Natural & Organic Honey",
+            "content": "",
+            "link": "shopify://collections/100-natural-and-organic-honey",
+            "content_color": "#ffffff"
+          }
+        },
+        "image_NxPcPR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wild_forest_13b97176-1046-4719-a2d9-2573446e04c3.jpg",
+            "layout": "one-quarter",
+            "title": "Organic Wild Forest Honey",
+            "content": "",
+            "link": "shopify://products/organic-wild-forest-honey-300g-holi-offer",
+            "content_color": "#ffffff"
+          }
+        },
+        "image_qL8MmL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/organic_cow_ghee.jpg",
+            "layout": "one-quarter",
+            "title": "Organic Cow Ghee",
+            "content": "",
+            "link": "shopify://products/organic-cow-ghee-500ml",
+            "content_color": "#ffffff"
+          }
+        },
+        "image_GGJwPt": {
+          "type": "image",
+          "settings": {
+            "layout": "two-half",
+            "title": "Organic Cow Milk",
+            "content": "",
+            "link": "shopify://collections/skimmed-milk",
+            "content_color": "#fffcec"
+          }
+        },
+        "image_g7gaED": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/5_18b22cc7-2e17-4520-8f5d-3357e5a1506e.png",
+            "layout": "two-half",
+            "title": "Organic Milk Fat Spread",
+            "content": "",
+            "link": "shopify://collections/spread",
+            "content_color": "#ffffff"
+          }
+        },
+        "image_eYzAL9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/honey_range_899.jpg",
+            "layout": "two-half",
+            "title": "Summer Sale @899",
+            "content": "",
+            "link": "shopify://products/summer-sale899",
+            "content_color": "#f5f5f5"
+          }
+        }
+      },
+      "block_order": [
+        "image_Y6r9WR",
+        "image_fhKcWW",
+        "image_NxPcPR",
+        "image_qL8MmL",
+        "image_GGJwPt",
+        "image_g7gaED",
+        "image_eYzAL9"
+      ],
+      "disabled": true,
+      "name": "SH: Image gallery",
+      "settings": {
+        "title": "",
+        "content": "<h1><strong>Our Category</strong></h1>",
+        "content_align": "center",
+        "gap": 8,
+        "border": 5,
+        "title_font_size": 21,
+        "content_font_size": 16,
+        "tile_title_font_size": 24,
+        "tile_content_font_size": 14,
+        "bg_color": "#ffffff",
+        "title_color": "#0c482c",
+        "content_color": "#121212",
+        "tiles_bg_color": "linear-gradient(359deg, rgba(0, 94, 54, 1) 10%, rgba(20, 30, 53, 0) 59%)",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "mob_padding_top": 30,
+        "mob_padding_bottom": 30,
+        "section_max_width": "1300"
+      }
+    },
+    "173944622510a29f30": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "feature_section_template_QbCW6t": {
+      "type": "feature-section-template",
+      "disabled": true,
+      "settings": {
+        "collection": "organic-ghee",
+        "products_to_show": 4
+      }
+    },
+    "company_offers_banner_MVKX4T": {
+      "type": "company-offers-banner",
+      "disabled": true,
+      "settings": {}
+    },
+    "featured_collection_zUYH7t": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".card__information {text-align: center;}",
+        ".price__container {text-align: center;}",
+        "h2 {color: #0c482c; font-weight: 700;}"
+      ],
+      "settings": {
+        "title": "Best Sellers",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": true,
+        "description_style": "subtitle",
+        "collection": "best-seller",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "certifications_RVe3Gf": {
+      "type": "certifications",
+      "blocks": {
+        "certification_image_NgzAgT": {
+          "type": "certification_image",
+          "settings": {
+            "image": "shopify://shop_images/canada_organic.png",
+            "alt_text": "Certification Image"
+          }
+        },
+        "certification_image_w8P6Jm": {
+          "type": "certification_image",
+          "settings": {
+            "image": "shopify://shop_images/USOCA.png",
+            "alt_text": "Certification Image"
+          }
+        },
+        "certification_image_ihaqVD": {
+          "type": "certification_image",
+          "settings": {
+            "image": "shopify://shop_images/agrocert.png",
+            "alt_text": "Certification Image"
+          }
+        },
+        "certification_image_9LJjCN": {
+          "type": "certification_image",
+          "settings": {
+            "image": "shopify://shop_images/india_organic_png.png",
+            "alt_text": "Certification Image"
+          }
+        },
+        "certification_image_Lag7MF": {
+          "type": "certification_image",
+          "settings": {
+            "image": "shopify://shop_images/fssai.png",
+            "alt_text": "Certification Image"
+          }
+        },
+        "certification_image_fzJgcF": {
+          "type": "certification_image",
+          "settings": {
+            "image": "shopify://shop_images/usda.png",
+            "alt_text": "Certification Image"
+          }
+        },
+        "certification_image_8WQKDA": {
+          "type": "certification_image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/jaivik_bharat.png",
+            "alt_text": "Certification Image"
+          }
+        },
+        "certification_image_b4zUag": {
+          "type": "certification_image",
+          "settings": {
+            "image": "shopify://shop_images/onecert.png",
+            "alt_text": "Certification Image"
+          }
+        }
+      },
+      "block_order": [
+        "certification_image_NgzAgT",
+        "certification_image_w8P6Jm",
+        "certification_image_ihaqVD",
+        "certification_image_9LJjCN",
+        "certification_image_Lag7MF",
+        "certification_image_fzJgcF",
+        "certification_image_8WQKDA",
+        "certification_image_b4zUag"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h2 {color: #0c482c; font-size: 30px; font-weight: 700;}"
+      ],
+      "settings": {
+        "title": "Certifications",
+        "color_scheme": "",
+        "images_per_row_mobile": 4
+      }
+    },
+    "video_with_text_JaahgV": {
+      "type": "video-with-text",
+      "disabled": true,
+      "settings": {
+        "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "background_image": "shopify://shop_images/water-color-5.png",
+        "heading": "Check out our amazing video!",
+        "description": "This is an engaging description for the video section. It's a perfect spot to explain the video content.",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "webelieve_YMcWJi": {
+      "type": "webelieve",
+      "disabled": true,
+      "settings": {
+        "title": "We Believe In",
+        "color_scheme_background": "#fffcec",
+        "color_scheme_title": "#005e36",
+        "image_title_1": "AUTHENTICITY",
+        "image_title_2": "TRADITION",
+        "image_title_3": "HONESTY",
+        "image_title_4": "PURPOSE"
+      }
+    },
+    "image_with_text_7ReLfL": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_tHAeYg": {
+          "type": "heading",
+          "settings": {
+            "heading": "Who Are We?",
+            "heading_size": "h1"
+          }
+        },
+        "text_BqRFRV": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Barsana is a small town (Tehsil) located in dist Mathura, Uttar Pradesh. This region is also known as Braj Bhumi. The place is birth place of goddess Radharani and consort of Lord Krishna. In this region people domesticate animals especially cows religiously. They raise the animal in worship of Lord Krishna. Lord Krishna’s love for cows and 'dairy product' is well known. Sanjeevani Agrofoods Limited is doing project with the farmer of Braj region in Organic Farming as well as livestock organic farming.In this project farmers are being trained for Organic farming practices whereas the domestication of animal is also part of the project. These Projects are certified Organic Agriculture projects under the norms of NPOP and USADA NOP Organic standards.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tHAeYg",
+        "text_BqRFRV"
+      ],
+      "disabled": true,
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-5",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "image_banner_9inNHe": {
+      "type": "image-banner",
+      "custom_css": [
+        ".banner__media media {height: 500px;}"
+      ],
+      "settings": {
+        "image_url": "shopify://products/summer-sale899",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "whybarsana_UDXMJj": {
+      "type": "whybarsana",
+      "custom_css": [
+        "h2 {color: #0c482c; font-weight: 700;}"
+      ],
+      "settings": {
+        "title": "Why Barsana ?",
+        "color_scheme_background": "#ffffff",
+        "color_scheme_title": "#000000",
+        "image_1": "shopify://shop_images/farmer-01.png",
+        "image_title_1": "5000+ Farmers",
+        "image_2": "shopify://shop_images/2_3cb3a641-cc3c-4900-8e6d-c24cbf1a08cd.png",
+        "image_title_2": "Traditional Techniques",
+        "image_3": "shopify://shop_images/3_9a6d123e-54b1-48a5-9b88-2a53ae37a330.png",
+        "image_title_3": "Indian breed cow",
+        "image_4": "shopify://shop_images/4_d62481fc-7cde-4ac1-91bf-38ccbc46d3f9.png",
+        "image_title_4": "Organic Certified",
+        "image_5": "shopify://shop_images/5_50b490bc-d0a3-4f19-81cb-33e53605c793.png",
+        "image_title_5": "No Added Preservatives"
+      }
+    },
+    "image_banner_W6Q9Em": {
+      "type": "image-banner",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/far-1-min.png",
+        "image_url": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": true
+      }
+    },
+    "image_with_text_KpFALN": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_ymM4Ga": {
+          "type": "heading",
+          "settings": {
+            "heading": "Empowering 5000+ Farmers,Cultivating 9800 Acres of FertileLand & Delivering Worldwide",
+            "heading_size": "h2"
+          }
+        },
+        "text_3cRX8F": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We proudly support over 5000 farmers, nurturing 9800 acres of organic farmland under NPOP (National Programme for Organic Production) and NOP (National Organic Program) standards and producing 26,300+ MTPA of premium milk. With a commitment to sustainable farming and fair in comes, we bring farm-fresh goodness to homes across India and 36 countries worldwide. Together, we're building a healthier, greener future for the upcoming generations.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_aWH3Jz": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read More",
+            "button_link": "shopify://pages/milestone",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ymM4Ga",
+        "text_3cRX8F",
+        "button_aWH3Jz"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/farmer_1.png",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-5",
+        "color_scheme": "scheme-5",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "image_with_text_nknmHk": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_ithtUa": {
+          "type": "heading",
+          "settings": {
+            "heading": "Indian Breed Cow Milk",
+            "heading_size": "h2"
+          }
+        },
+        "text_E73LNf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We source our milk from <strong>Indian breed cows</strong>, untouched by human hands and processed using fully automated machines. This ensures a clean, hygienic, and natural process from farm to packaging raised under close supervision by our farmers on organic farms. These cows, including breeds like Badri, Gir, and Sahiwal cows, feed on natural fodder, providing A2 milk known for its digestibility and nutritional benefits. Rich in protein, particularly in whey and casein, It is a good choice for growing children, pregnant mothers, and the elderly. Our organic cow milk is packaged in 6 layers using UHT technology, ensuring that the milk remains free from pesticides, synthetic hormones, and harmful additives. It tastes farm-fresh and delivered directly to your doorstep.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ithtUa",
+        "text_E73LNf"
+      ],
+      "custom_css": [
+        ".section-template--18815213142272__image_with_text_nknmHk-padding {background: #005e36;}",
+        "h2 {color: #0c482c; font-weight: 700;}"
+      ],
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "our_strength_NAFBri": {
+      "type": "our-strength",
+      "custom_css": [
+        "h2 {color: #0c482c; font-weight: 700;}"
+      ],
+      "settings": {
+        "heading": "Our Strength",
+        "description": "Showcasing the core values and quality behind our products."
+      }
+    },
+    "custom_liquid_8cjVdh": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<h3>Our Strength</h3>",
+        "color_scheme": "",
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "custom_liquid_8iKcBn": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<h3>Our Philosophy</h3>",
+        "color_scheme": "",
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "featured_blog_eA4HfJ": {
+      "type": "featured-blog",
+      "custom_css": [
+        "h2 {color: #0c482c; font-size: 20px; font-weight: 700;}",
+        "h3 a {font-size: 20px; font-weight: 700; color: #0c482c;}",
+        "img {max-width: 100%; height: auto;}"
+      ],
+      "settings": {
+        "heading": "Recent Blogs",
+        "heading_size": "h3",
+        "blog": "blogs",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-3c8557ec-7e18-478e-b149-e26fbd3ec93a",
+        "show_image": true,
+        "show_date": true,
+        "show_author": true,
+        "show_view_all": true,
+        "padding_top": 0,
+        "padding_bottom": 8
+      }
+    },
+    "17444582503e7418fe": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "slideshow_UKEAgf",
+    "marque_slider_dQxJLW",
+    "summer_sale_offers_FzRdU4",
+    "custom_collection_grid_fXEhtN",
+    "sh_image_gallery_MfAH8q",
+    "173944622510a29f30",
+    "feature_section_template_QbCW6t",
+    "company_offers_banner_MVKX4T",
+    "featured_collection_zUYH7t",
+    "certifications_RVe3Gf",
+    "video_with_text_JaahgV",
+    "webelieve_YMcWJi",
+    "image_with_text_7ReLfL",
+    "image_banner_9inNHe",
+    "whybarsana_UDXMJj",
+    "image_banner_W6Q9Em",
+    "image_with_text_KpFALN",
+    "image_with_text_nknmHk",
+    "our_strength_NAFBri",
+    "custom_liquid_8cjVdh",
+    "custom_liquid_8iKcBn",
+    "featured_blog_eA4HfJ",
+    "17444582503e7418fe"
+  ]
+}
