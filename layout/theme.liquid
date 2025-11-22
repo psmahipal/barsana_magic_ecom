@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
-
+    {% comment %} {%- if content_for_header contains 'tapita-seo-script-tags' -%}{%- include 'tapita-seo-schema' -%}{%- endif -%} {% endcomment %}
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,84 +9,72 @@
     <meta name="theme-color" content="">
     <meta name="google-adsense-account" content="ca-pub-2610546797347936">
 
-       
-   
-    <!-- Event snippet for Add to cart conversion page -->
+    <!-- Flash Speed Optimization for Barsana Magic -->
     <script>
-      gtag('event', 'conversion', {'send_to': 'AW-16680279255/_KWeCMuOx_sZENe545E-'});
+      // Load non-critical 3rd-party after first paint
+      window.addEventListener('DOMContentLoaded', function () {
+        var s = document.createElement('script');
+        s.src = "https://app.flash-speed.com/static/increase-pagespeed-min.js?shop=barsanamagic-com.myshopify.com";
+        s.async = true;
+        document.head.appendChild(s);
+      });
     </script>
-    <script src="https://www.googletagmanager.com/gtag/js?id=G-B40P6KQCL3"></script>
-    <script ayncs>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-B40P6KQCL3');
-    </script>
-
-  
+    
     <script async="async">
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-N7F7TVLK');
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-N7F7TVLK');
     </script>
     <!-- End Google Tag Manager -->
 
-    <!-- Event snippet for Page View conversion page Tarun -->
-    <script async="async">
-      gtag('event', 'conversion', {'send_to': 'AW-16680279255/BvGLCLrjyfsZENe545E-'});
-    </script>
-
     <!-- Meta Pixel Code -->
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1611943559670609');
-      fbq('track', 'PageView');
-    </script>
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+              n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+          })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
-    <noscript
-      ><img
-        height="1"
-        width="1"
-        style="display:none"
-        src="https://www.facebook.com/tr?id=1611943559670609&ev=PageView&noscript=1"
-    ></noscript>
-    <!-- End Meta Pixel Code -->
-
-    <!-- Google tag (gtag.js) event -->
-    <script>
-      gtag('event', 'conversion_event_purchase_1', {
-        // <event_parameters>
+          fbq('init', '1611943559670609');
+          fbq('track', 'PageView');
+        }, 3000); // delay load by 3 seconds
       });
     </script>
 
-    <!-- Google tag (gtag.js) event - delayed navigation helper -->
-    <script defer>
-      // Helper function to delay opening a URL until a gtag event is sent.
-      // Call it in response to an action that should navigate to a URL.
-      function gtagSendEvent(url) {
-        var callback = function () {
-          if (typeof url === 'string') {
-            window.location = url;
-          }
-        };
-        gtag('event', 'conversion_event_purchase_1', {
-          'event_callback': callback,
-          'event_timeout': 2000,
-          // <event_parameters>
-        });
-        return false;
-      }
-    </script>
+    {% comment %} <noscript
+      ><img
+        src="https://www.facebook.com/tr?id=1611943559670609&ev=PageView&noscript=1"
+        height="1"
+        width="1"
+        style="display:none"
+        alt="Facebook tracking pixel"
+        title="Facebook tracking pixel"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+    ></noscript> {% endcomment %}
+    <!-- End Meta Pixel Code -->
+
 
     <link rel="canonical" href="{{ canonical_url }}">
 
@@ -98,80 +86,133 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
-    <title>
+    {% comment %} <title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title> {% endcomment %}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %}{% endunless -%}
     </title>
 
-<style>
-/* Breadcrumbs' styles */
-  
-  .breadcrumbsMain{
-    width: 90%;
-    margin: 0 auto;
-  }
-.breadcrumbs {
-  font-size: .85em;
-  margin: 0 0 2em;
-}
-
-.breadcrumbs ol {
-  list-style-type: none;
-  margin: 10;
-  padding: 10;
-}
-
-.breadcrumbs li {
-  display: inline-block;
-}
-
-.breadcrumbs a {
-  text-decoration: none;
-    color: black;
-    font-size: 13px;
-}
-
-.breadcrumbs li:not(:last-child):after {  
-  content: "›\00a0";
-  display: inline-block;
-  padding-left: .75ch;
-  speak: none;
-  vertical-align: middle;
-}
-
-.breadcrumbs [aria-current="page"] {
-  color: inherit;
-  font-weight: normal;
-  text-decoration: none;
-  font-size: 14px;
-    font-weight: 600;
-}
-
-.breadcrumbs [aria-current="page"]:hover,
-.breadcrumbs [aria-current="page"]:focus {
-  text-decoration: underline;
-}
- @media screen and (max-width: 480px) {
-  .breadcrumbs {
-   width:100%;
-    margin:-8 auto;
-  }
-   img {
-  max-inline-size: 100%;
-  block-size: auto;
-}
-}
-    
-  }
-</style>
- 
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
-    {% render 'meta-tags', page_description: page_description, page_title: page_title  %}
+    {% render 'meta-tags', page_description: page_description, page_title: page_title %}
+
+    {%- if collection.handle == 'organic-ghee' -%}
+      <meta
+        name="keywords"
+        content="Best cow ghee in India , Authentic Bilona Ghee, Organic A2 cow ghee, Certified Organic Cow Ghee ,Authentic A2 Cow Ghee"
+      >
+    {%- elsif collection.handle == '100-natural-and-organic-honey' -%}
+      <meta
+        name="keywords"
+        content="organic honey , himalayan honey ,  multiflora honey , raw honey , organic honey in india ,  natural honey in india , organic and natural honey  , Barsana Magic Honey"
+      >
+    {%- elsif collection.handle == 'spread' -%}
+      <meta name="keywords" content="">
+    {%- elsif collection.handle == 'organic-cow-milk' -%}
+      <meta name="keywords" content="">
+    {%- elsif collection.handle == 'protein-range' -%}
+      <meta
+        name="keywords"
+        content="protein range , Best protein coffee in India , high protein coffee , plant based protein powder, barsana magic protein range"
+      >
+    {%- endif -%}
+
+    {% if template.name == 'index' %}
+      <meta
+        name="keywords"
+        content="organic food products , natural organic products , organic dairy products , raw honey , himalayan organic products , Barsana magic"
+      >
+    {%- elsif product.handle == 'organic-a2-badri-cow-ghee-500ml' -%}
+      <meta
+        name="keywords"
+        content="a2 ghee ,a2 cow ghee ,  a2 badri cow ghee  , organic a2 cow ghee , a2 cow ghee price , badri cow ghee benefits"
+      >
+    {%- elsif product.handle == 'organic-bilona-cow-ghee-500ml' -%}
+      <meta
+        name="keywords"
+        content="bilona ghee ,bilona cow ghee, bilona method ghee , bilona ghee price , bilona ghee benefits ,what is bilona ghee, organic bilona cow ghee , Barsana Magic"
+      >
+    {%- elsif product.handle == 'organic-cow-ghee-500ml' -%}
+      <meta
+        name="keywords"
+        content="cow ghee , Pure cow ghee, organic cow ghee , best cow ghee in india  , cow ghee benefits , best organic grass fed ghee , Indian breed cow ghee , Barsana Magic organic cow ghee"
+      >
+    {%- elsif product.handle == 'dark-chocolate-protein-coffee' -%}
+      <meta
+        name="keywords"
+        content="Dark Chocolate Protein Coffee , Protein Coffee 25g , No Added Sugar Coffee , Healthy Chocolate Coffee , Protein Coffee Drink , Coffee for Energy & Recovery , High Protein Coffee Powder , Best Chocolate Protein Drink  ,  Low Calorie Coffee Beverage"
+      >
+    {%- elsif product.handle == 'protein-coffee-iced-latte' -%}
+      <meta
+        name="keywords"
+        content="Iced Latte Protein Coffee , 25g Protein Cold Coffee , No Added Sugar Latte , Protein Latte Drink ,Cold Coffee with Protein , Healthy Iced Latte , High Protein Latte Coffee , Best Cold Brew for Fitness , Low Sugar Iced Latte"
+      >
+    {%- elsif product.handle == 'iced-mocha-protein-coffee' -%}
+      <meta
+        name="keywords"
+        content="Iced Mocha Protein Coffee , 25g Protein Coffee , No Added Sugar Cold Coffee , Mocha Coffee Drink ,  Keto-Friendly Protein Coffee , Refreshing Protein Coffee , Best Mocha Coffee for Fitness , High Protein Iced Coffee , Chilled Protein Coffee"
+      >
+    {%- elsif product.handle == 'protein-coffee-iced-vanilla' -%}
+      <meta
+        name="keywords"
+        content="Iced Vanilla Protein Coffee , 25g Protein Cold Brew , No Added Sugar Vanilla Coffee , Vanilla Coffee Drink , High Protein Cold Coffee , Healthy Vanilla Coffee , Best Vanilla Coffee for Gym , Protein Coffee with Vanilla Flavour , Low Sugar Cold Brew Coffee"
+      >
+    {%- elsif product.handle == 'assorted-protein-coffee-8-pack' -%}
+      <meta
+        name="keywords"
+        content="Protein Coffee Assorted Pack ,  8 Flavors Protein Coffee , No Added Sugar Protein Coffee , Protein Coffee Combo Pack , Healthy Coffee Variety Pack , High Protein Coffee 25g , Best Coffee Pack for Fitness , Coffee with Multiple Flavors , Assorted Protein Cold Coffee"
+      >
+    {%- elsif product.handle == 'everyday-protein-mix' -%}
+      <meta
+        name="keywords"
+        content="everyday protein mix , Best vegan protein powder India , wheat roti nutrition , pure protein , benefits of eating chapati , chapati digestion time , protein in roti , how much protein in 1 chapati"
+      >
+    {%- elsif product.handle == 'organic-wild-forest-honey-300g' -%}
+      <meta
+        name="keywords"
+        content="wild forest honey , raw wild forest honey ,  wild forest honey benefits , multiflora honey benefits , pure raw honey , organic wild forest honey , barsana magic wild forest honey "
+      >
+    {%- elsif product.handle == '100-natural-neem-honey-300g' -%}
+      <meta
+        name="keywords"
+        content="neem honey , natural honey , neem with honey   ,  Neem Honey Benefits for skin ,  neem and honey , barsana magic neem honey , natural neem honey"
+      >
+    {%- elsif product.handle == '100-natural-van-tulsi-raw-honey-holy-basil-300g' -%}
+      <meta
+        name="keywords"
+        content="tulsi honey , Van Tulsi Honey ,  tulsi and honey for cough  ,  tulsi honey benefits , raw forest honey , barsana magic , natural van tulsi honey"
+      >
+    {%- elsif product.handle == '100-natural-acacia-honey-300g' -%}
+      <meta
+        name="keywords"
+        content="acacia honey  ,  raw acacia honey  , raw acacia honey benefits , acacia honey price ,  barsana magic , natural acacia honey "
+      >
+    {%- elsif product.handle == '100-natural-jamun-honey-indian-blackberry-300g' -%}
+      <meta
+        name="keywords"
+        content="jamun honey , jamun honey benefits ,  jamun honey health benefits , jamun honey price , barsana magic , natural jamun honey "
+      >
+    {%- elsif product.handle == 'natural-mustard-honey-300g' -%}
+      <meta
+        name="keywords"
+        content="mustard honey , pure raw honey ,  raw mustard honey , unprocessed honey , mustard honey benefits , natural musturd honey , barsana magic"
+      >
+    {%- elsif product.handle == 'organic-buffalo-ghee' -%}
+      <meta
+        name="keywords"
+        content="organic buffalo ghee , Pure Buffalo Ghee, bilona method, buffalo ghee price 1 kg, buffalo ghee benefits, best buffalo ghee in india, slow cooking method "
+      >
+    {%- endif -%}
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
@@ -410,9 +451,6 @@
       {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
 
- 
-    
-
     {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
       {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
       <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
@@ -432,6 +470,8 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+  {% comment %} <div id='popper_app'>{% include 'popper_app.liquid' %}</div> {% endcomment %}
+  {% render 'sr-checkout' %}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -440,10 +480,10 @@
         src="https://www.googletagmanager.com/ns.html?id=GTM-N7F7TVLK"
         height="0"
         width="0"
-        style="display:none;visibility:hidden">
-        </iframe>
+        style="display:none;visibility:hidden"
+      >
+      </iframe>
     </noscript>
-
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -454,117 +494,175 @@
 
     {% sections 'header-group' %}
 
-     {% unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' %}
+    {% unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' %}
+      {% comment %} {% assign t = template | split: '.' | first %} {% endcomment %}
 
-{% assign t = template | split: '.' | first %}
+      {% comment %} <div class="breadcrumbsMain"> {% endcomment %}
+      {% comment %}
+        <nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
+          <ol>
+            <li>
+              <a href="/" title="Home">Home</a>
+            </li>
 
-<div class="breadcrumbsMain">
-<nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
-  <ol>
-    <li>
-      <a href="/" title="Home">Home</a>
-    </li>
+          {% case t %}
+          {% when 'page' %}
 
-  {% case t %}
-  {% when 'page' %}
+            <li>
+              <a href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
+            </li>
 
-    <li>
-      <a href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
-    </li>
+          {% when 'product' %}
 
-  {% when 'product' %}
+            {% if collection.url %}
+              <li>
+                {{ collection.title | link_to: collection.url }}
+              </li>
+            {% endif %}
 
-    {% if collection.url %}
-      <li>
-        {{ collection.title | link_to: collection.url }}
-      </li>
-    {% endif %}
+            <li>
+              <a href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
+            </li>
 
-    <li>
-      <a href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
-    </li>
+          {% when 'collection' and collection.handle %}
 
-  {% when 'collection' and collection.handle %}
+            {% if current_tags %}
+              <li>{{ collection.title | link_to: collection.url }}</li>
+              <li>
+                {% capture tag_url %}{{ collection.url }}/{{ current_tags | join: "+"}}{% endcapture %}
+                <a href="{{ tag_url }}" aria-current="page">{{ current_tags | join: " + "}}</a>
+              </li>
+            {% else %}
+              <li>
+                <a href="{{ collection.url }}" aria-current="page">{{ collection.title }}</a>
+              </li>
+            {% endif %}
 
-    {% if current_tags %}
-      <li>{{ collection.title | link_to: collection.url }}</li>
-      <li>
-        {% capture tag_url %}{{ collection.url }}/{{ current_tags | join: "+"}}{% endcapture %}
-        <a href="{{ tag_url }}" aria-current="page">{{ current_tags | join: " + "}}</a>
-      </li>
-    {% else %}
-      <li>
-        <a href="{{ collection.url }}" aria-current="page">{{ collection.title }}</a>
-      </li>
-    {% endif %}
+          {% when 'blog' %}
 
-  {% when 'blog' %}
+            {% if current_tags %}
+              <li>{{ blog.title | link_to: blog.url }}</li>
+              <li>
+                {% capture tag_url %}{{blog.url}}/tagged/{{ current_tags | join: "+" }}{% endcapture %}
+                <a href="{{ tag_url }}" aria-current="page">{{ current_tags | join: " + " }}</a>
+              </li>
+            {% else %}
+              <li>
+                <a href="{{ blog.url }}" aria-current="page">{{ blog.title }}</a>
+              </li>
+            {% endif %}
 
-    {% if current_tags %}
-      <li>{{ blog.title | link_to: blog.url }}</li>
-      <li>
-        {% capture tag_url %}{{blog.url}}/tagged/{{ current_tags | join: "+" }}{% endcapture %}
-        <a href="{{ tag_url }}" aria-current="page">{{ current_tags | join: " + " }}</a>
-      </li>
-    {% else %}
-      <li>
-        <a href="{{ blog.url }}" aria-current="page">{{ blog.title }}</a>
-      </li>
-    {% endif %}
+          {% when 'article' %}
 
-  {% when 'article' %}
+            <li>{{ blog.title | link_to: blog.url }}</li>
+            <li>
+              <a href="{{ article.url }}" aria-current="page">{{ article.title }}</a>
+            </li>
 
-    <li>{{ blog.title | link_to: blog.url }}</li>
-    <li>
-      <a href="{{ article.url }}" aria-current="page">{{ article.title }}</a>
-    </li>
+          {% else %}
 
-  {% else %}
+            <li aria-current="page">
+              <a href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
+            </li>
 
-    <li aria-current="page">
-      <a href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
-    </li>
+          {% endcase %}
 
-  {% endcase %}
+          </ol>
+        </nav>
+      {% endcomment %}
+      {% comment %} </div> {% endcomment %}
+    {% endunless %}
 
-  </ol>
-</nav>
-{% endunless %}
-</div>
-
-   
-{%- assign t = template | split: '.' | first -%}
+    {% comment %} {%- assign t = template | split: '.' | first -%} {% endcomment %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
-    
-      {% if template contains 'product' and product.type == 'byobSuite' and product.handle == 'summer-sale899' %}
-          <div class="holiSale">
-            <img src="https://cdn.shopify.com/s/files/1/0731/2634/7008/files/sachets.jpg_low_res.jpg?v=1741071893" />
-          </div>
-
-          {% elsif  template contains 'product' and product.type == 'byobSuite' and product.handle == 'summer-sale1499' %}
-           <div class="holiSale">
-            <img src="https://cdn.shopify.com/s/files/1/0731/2634/7008/files/sachets.jpg_low_res.jpg?v=1741071893" />
-           </div>
-
-          {% elsif template contains 'product' and product.type == 'byobSuite' and product.handle == 'sumersale1899' %}
-          <div class="holiSale">
-             <img src="https://cdn.shopify.com/s/files/1/0731/2634/7008/files/1899_60852907-761a-4d3b-b5b3-d93009f70da5.jpg?v=1744354560" />
-           </div>
-
-          {% elsif template contains 'product' and product.type == 'byobSuite' and product.handle == 'sumersale2699' %}
-          <div class="holiSale">
-             <img src="https://cdn.shopify.com/s/files/1/0731/2634/7008/files/2699_b2aa8149-f4da-469f-a54e-18c6764cd8a7.jpg?v=1744354560" />
-           </div>
+       {% if template.name == 'index' or request.page_type == 'index' or template == 'index' %}
+          <!-- Start of Judge.me code (Home page only) --> 
+          <div class='jdgm-carousel-wrapper'> 
+            {% assign jm_metafields = shop.metafields.judgeme %} 
+            <div class='jdgm-carousel-title-and-link'> 
+              <h2 class='jdgm-carousel-title'>Let customers speak for us</h2> 
+              <span class='jdgm-all-reviews-rating-wrapper' href='javascript:void(0)'> 
+                <span style='display:block' data-score='{{ jm_metafields.all_reviews_rating }}' class='jdgm-all-reviews-rating' aria-label='{{ jm_metafields.all_reviews_rating }} stars' tabindex='0' role='img'></span> 
+                <span style='display: block' class='jdgm-carousel-number-of-reviews' data-number-of-reviews='{{ jm_metafields.all_reviews_count }}'> 
+                  from {{ shop.metafields.judgeme.all_reviews_count }} reviews 
+                </span> 
+              </span> 
+            </div> 
+            {{ jm_metafields.featured_carousel }} 
+          </div> 
+          <!-- End of Judge.me code -->
         {% endif %}
-    
 
-       
+    {% if template contains 'product' and product.type == 'byobSuite' and product.handle == 'buy-any-honey-3-at-899-limited-offer' %}
+      <div class="holiSale">
+        {% comment %} <div class="offer-container">
+          <p class="offer-title">Coupon already applied: Buy any 3 Honey at @ ₹899.</p>
+        </div>
+        <img
+          src="https://cdn.shopify.com/s/files/1/0731/2634/7008/files/899_honey.jpg?v=1759294414"
+          alt="Barsana Magic Sale – each jar 300g"
+          title="Barsana Magic Pack of 5 honey at ₹899"
+          height=""
+          width=""
+        > {% endcomment %}
 
-    
+        {%  render 'bundle-suite-faq-899' %} 
+      </div> 
+
+    {% elsif template contains 'product' and product.type == 'byobSuite' and product.handle == 'buy-any-honey-5-at-1499-limited-offer' %}
+      <div class="holiSale">
+        {% comment %} <div class="offer-container">
+          <p class="offer-title">Coupon already applied: Buy any 5 Honey at @ ₹1499.</p>
+        </div> {% endcomment %}
+        {% comment %} <img
+          src="https://cdn.shopify.com/s/files/1/0731/2634/7008/files/1499_725e0d66-1a56-4658-818b-d6843d67d400.jpg?v=1761988134"
+          alt="Barsana Magic Sale – 5 jars of honey for only ₹1499,each jar 300g"
+          title="Barsana Magic Pack of 5 honey at ₹1499"
+          height="400"
+          width="400"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
+        >  {% endcomment %}
+      {%  render 'bundle-suite-faq' %} 
+      </div>
+
+   {% comment %} {% elsif template contains 'product' and product.type == 'byobSuite' and product.handle == 'summer-sale899' %}
+      <div class="holiSale"> {% endcomment %}
+        {% comment %} <img
+          src="https://cdn.shopify.com/s/files/1/0731/2634/7008/files/1899_60852907-761a-4d3b-b5b3-d93009f70da5.jpg?v=1744354560"
+          height=""
+          width=""
+        > {% endcomment %}
+      {% comment %} </div> {% endcomment %}
+
+    {% comment %} {% elsif template contains 'product' and product.type == 'byobSuite' and product.handle == 'sumersale2699' %}
+      <div class="holiSale">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0731/2634/7008/files/2699_b2aa8149-f4da-469f-a54e-18c6764cd8a7.jpg?v=1744354560"
+          height=""
+          width=""
+        >
+      </div>  {% endcomment %}
+
+    {% endif %}
+
+    <!-- Start of Judge.me code --> 
+  {% comment %} <div style='clear:both'></div> 
+  <div style='text-align: center'> 
+    <a class='jdgm-verified-count-badget' href='javascript:void(0)'> 
+      {{ shop.metafields.judgeme.verified_badge }} 
+    </a> 
+  </div>  {% endcomment %}
+<!-- End of Judge.me code -->
+
+    {% comment %} {%- if content_for_header contains 'tapita-seo-script-tags' -%}{%- include 'tapita-seo-schema' -%}{%- endif -%} {% endcomment %}
+         {%- if content_for_header contains 'tapita-seo-script-tags' -%}{%- render 'tapita-seo-schema' -%}{%- endif -%}
+
     {% sections 'footer-group' %}
 
     <ul hidden>
@@ -625,83 +723,76 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {% assign whatsappNumber = '918439358981' %}
-    {% assign Message = 'Hi' %}
-    {% assign buttonPosition = 'right' %}
-    {% assign buttonColor = '#25d366' %}
-    {% assign closeButtonColor = 'black' %}
+    {% assign whatsapp_number = '918439358981' %}
+    {% assign what_message = 'Hi' %}
+    {% comment %} {% assign button_position = 'right' %} {% endcomment %}
+    {% comment %} {% assign button_color = '#25d366' %} {% endcomment %}
+    {% comment %} {% assign closebutton_color = 'black' %} {% endcomment %}
 
-    {% assign marginBottom = '1.25em' %}
-    {% assign marginLeft = '1.25em' %}
-    {% assign marginRight = '1.25em' %}
-    {% assign cornerRadius = '2.5em' %}
-    {% assign zIndex = '999999' %}
-    {% assign showCloseButton = true %}
+    {% comment %} {% assign marginBottom = '1.25em' %} {% endcomment %}
+    {% comment %} {% assign marginLeft = '1.25em' %} {% endcomment %}
+    {% comment %} {% assign marginRight = '1.25em' %} {% endcomment %}
+    {% assign corner_radius = '2.5em' %}
+    {% comment %} {% assign zIndex = '999999' %} {% endcomment %}
+    {% assign show_close_button = true %}
 
-    {% if buttonPosition == 'left' %}
-      {% assign positionStyle = 'left: 0;' %}
+    {% comment %} {% if button_position == 'left' %}
+      {% assign position_style = 'left: 0;' %}
     {% else %}
-      {% assign positionStyle = 'right: 0;' %}
-    {% endif %}
+      {% assign position_style = 'right: 0;' %}
+    {% endif %} {% endcomment %}
 
-    <style> 
-     
-      .whatsapp-button-container {
-       position: fixed;
-       text-align: center;
-       z-index: 9999;
-       right: 5px;
-       top: 430px;
+    <style>
+        .whatsapp-button-container {
+         position: fixed;
+         text-align: center;
+         z-index: 9999;
+         right: 5px;
+         top: 430px;
+        }
+
+        .whatsapp-button {
+          display: flex;align-items: center;justify-content: center;padding: 0.625em;border-radius: {{ corner_radius }};text-decoration: none;font-weight: bold;color: #FFFFFF;
+        }
+
+        .whatsapp-button img {
+          height: 3.5em;width: auto;margin-right: 0.3125em;
+        }
+
+        .close-button {
+          position: absolute;top: -0.625em;right: -0.625em;display: {{ show_close_button | default: true | append: "none" }};background-color: red;color: white;width: 1.25em;
+          height: 1.25em;border-radius: 50%;text-align: center;line-height: 1.25em;font-weight: bold;cursor: pointer;
+        }
+
+      {% comment %} .quantity-controls .quantity-btn.plus{
+        display : none !important;
       }
 
-      .whatsapp-button {
-        display: flex;align-items: center;justify-content: center;padding: 0.625em;border-radius: {{ cornerRadius }};text-decoration: none;font-weight: bold;color: #FFFFFF;
-      }
+      .quantity-input{
+        margin-right : 40px !important;
+      } {% endcomment %}
 
-      .whatsapp-button img {
-        height: 3.5em;width: auto;margin-right: 0.3125em;
-      }
+    .individual-products-section[data-section-index="1"] h3{
+      display : none !important;} 
 
-      .close-button {
-        position: absolute;top: -0.625em;right: -0.625em;display: {{ showCloseButton | default: true | append: "none" }};background-color: red;color: white;width: 1.25em;
-        height: 1.25em;border-radius: 50%;text-align: center;line-height: 1.25em;font-weight: bold;cursor: pointer;
-      }
-     {% if template.name == 'product' and product.tags contains 'byobSuite' and product.handle == 'summer-sale899'  %}
-  .product-card .quantity-controls button{
-display:none !important;
-  }
-    .product-card .quantity-controls input {
-    width: 100%;
-    height: 24px;
-    text-align: center;
-    border: none;
-    background: transparent;
-    color: var(--clr-white);
-    border-radius: 4px;
-    padding: 0 4px;
-    font-size: var(--fs-16);
+    .quantity-input{
+    margin-right : 0px !important;}
 
-}
-    {% endif %}
-    </style>
+      {% comment %} .section-title {
+        display : none !important;
+      } {% 
 
-    <script async>
-      function hideWhatsAppButton() {
-        document.querySelector('.whatsapp-button-container').style.display = 'none';
-      }
-      // Wait for the DOM to load
-      document.addEventListener('DOMContentLoaded', function() {
-        // Add click event listener to the close button
-        document.querySelector('.close-button').addEventListener('click', hideWhatsAppButton);
-      });
-    </script>
-    <div class="whatsapp-button-container">
-      <a class="whatsapp-button" href="https://api.whatsapp.com/send?phone={{ whatsappNumber }}&amp;text={{ Message | url_encode }}" target="_blank">
-        
-        <img src="https://cdn.shopify.com/s/files/1/0731/2634/7008/files/wa-logo-120.png?v=1741410826" style="opacity: inherit;" fetchpriority="high" alt="Barsana Magic" width="1" height="1">
-      </a>
-      {% if showCloseButton %}
-      {% endif %}
-    </div>
-  </body>
+       {% comment %} #condition-section-1762932184526 {
+        display : none !important;
+      }  {% endcomment %}
+      
+
+    </style>   
+
+    {% comment %} {% render 'razorpay-magic-checkout' %} {% endcomment %}
+  
+{% render 'razorpay-magic-sso' %}
+</body>
 </html>
+
+
