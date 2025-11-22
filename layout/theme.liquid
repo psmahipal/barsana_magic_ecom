@@ -595,7 +595,7 @@
           width=""
         > {% endcomment %}
 
-        {%  render 'bundle-suite-faq-899' %} 
+        {% comment %} {%  render 'bundle-suite-faq-899' %}  {% endcomment %}
       </div> 
 
     {% elsif template contains 'product' and product.type == 'byobSuite' and product.handle == 'buy-any-honey-5-at-1499-limited-offer' %}
@@ -613,7 +613,7 @@
           loading="eager"
           decoding="async"
         >  {% endcomment %}
-      {%  render 'bundle-suite-faq' %} 
+      {% comment %} {%  render 'bundle-suite-faq' %}  {% endcomment %}
       </div>
 
    {% comment %} {% elsif template contains 'product' and product.type == 'byobSuite' and product.handle == 'summer-sale899' %}
