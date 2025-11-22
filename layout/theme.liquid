@@ -456,7 +456,7 @@
       }
     </script>
   {% comment %} <div id='popper_app'>{% include 'popper_app.liquid' %}</div> {% endcomment %}
-  {% render 'sr-checkout' %}
+  {% comment %} {% render 'sr-checkout' %} {% endcomment %}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
