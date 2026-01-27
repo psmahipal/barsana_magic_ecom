@@ -181,7 +181,7 @@
           "type": "small_image",
           "disabled": true,
           "settings": {
-            "small_image_url": "shopify://collections/100-natural-and-organic-honey",
+            "small_image_url": "shopify://collections/natural-and-organic-honey",
             "small_image_text": "Natural & Organic Honey"
           }
         },
@@ -261,7 +261,7 @@
             "layout": "two-half",
             "title": "Natural & Organic Honey",
             "content": "",
-            "link": "shopify://collections/100-natural-and-organic-honey",
+            "link": "shopify://collections/natural-and-organic-honey",
             "content_color": "#ffffff"
           }
         },
